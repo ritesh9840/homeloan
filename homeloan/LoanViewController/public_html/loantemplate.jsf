@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>LeaveTemplate</afc:display-name>
+            <afc:facet>
+                <afc:description>BodyContent</afc:description>
+                <afc:facet-name>Center</afc:facet-name>
+            </afc:facet>
+            <afc:attribute>
+                <afc:attribute-name>pageTitle</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:default-value>new Page</afc:default-value>
+            </afc:attribute>
+        </afc:component>
+    </af:xmlContent>
+    <af:panelStretchLayout id="pt_psl1" topHeight="109px" startWidth="50px">
+        <f:facet name="start" />
+        <f:facet name="end"/>
+        <f:facet name="top">
+            <af:panelSplitter id="pt_ps1" splitterPosition="967">
+                <f:facet name="first">
+                    <af:panelGroupLayout id="pt_pgl1">
+                        <af:image source="#{resource['images:Nepalpolice.png']}" shortDesc="Nepal Police Banner"
+                                  id="pt_i1"/>
+                       
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelGroupLayout id="ptpgl3" layout="horizontal">
+                        <af:spacer width="7" height="10" id="pts2"/>
+                         <af:goLink text="Change Password" destination="/faces/changepassword.jsf" id="gl3"/>
+                        <af:navigationPane id="np1" value="#{menu}" var="n" hint="bar">
+                            <f:facet name="nodeStamp">
+                                <af:commandNavigationItem text="#{n.label}" id="pt_cni1" action="#{n.doAction}" />
+                            </f:facet>
+                        </af:navigationPane>
+                      <af:outputText value="Welcome To #{loanValidator.username}"
+                                       inlineStyle="font-weight:bold; width:50px" id="ptot2"
+                                       rendered="#{securityContext.authenticated}"/> 
+                                    
+                        <!--<af:image source='#{securityContext.authenticated ? "logout.gif" : "login.gif"}' id="pti2"
+                                  inlineStyle="width:16px; height:16px;" shortDesc="switchable icon"/> -->
+                        <af:goLink text='#{securityContext.authenticated ? "Logout" : "Login"}'
+                                   destination='#{securityContext.authenticated ? "/adfAuthentication?logout=true&amp;end_url=/faces/welcome.jsf" : "/adfAuthentication?success_url=/faces/welcome.jsf"}'
+                                   inlineStyle="color:Blue; font-size:14px; font-weight:bold;" id="gl1"/>
+                        <f:facet name="separator">
+                            <af:spacer width="5" height="10" id="pts1"/>
+                        </f:facet>
+                         
+                        <af:goLink text="Home" destination="/faces/main.jsf" id="gl2"/>
+                        
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelSplitter>
+        </f:facet>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:decorativeBox id="pt_db1">
+                <f:facet name="top">
+                    <af:navigationPane hint="tabs" id="pt_np1" level="1" value="#{menu}" var="n">
+                        <f:facet name="nodeStamp">
+                            <af:commandNavigationItem text="#{n.label}" id="pt_cni2" action="#{n.doAction}"/>
+                        </f:facet>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="center">
+                    <af:facetRef facetName="Center"/>
+                </f:facet>
+            </af:decorativeBox>
+        </f:facet>
+    </af:panelStretchLayout>
+</af:pageTemplateDef>

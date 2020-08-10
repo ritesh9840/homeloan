@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="LoanPolicy.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/loantemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="Center">
+                    <af:panelCollection id="pc1" inlineStyle="width:1245px; height:168px;">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:button text="AddNew" id="b1">
+                                    <af:showPopupBehavior popupId="addNewPopup"/>
+                                </af:button>
+                                <af:button text="Update" id="b2">
+                                    <af:showPopupBehavior popupId="EditPopup"/>
+                                </af:button>
+                                <af:button text="Delete" id="b3">
+                                    <af:showPopupBehavior popupId="DeletePopup"/>
+                                </af:button>
+                                <af:button text="Export" id="b4">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                                       filterName="PersonPhone.xls"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.PersonPhone1.collectionModel}" var="row"
+                                  rows="#{bindings.PersonPhone1.rangeSize}"
+                                  emptyText="#{bindings.PersonPhone1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.PersonPhone1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.PersonPhone1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.PersonPhone1.rangeSize}"
+                                  filterModel="#{bindings.PersonPhone1Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.PersonPhone1Query.processQuery}" varStatus="vs" id="t1"
+                                  binding="#{viewScope.loanRequestCRUD.bndResultTable}" width="1243"
+                                  inlineStyle="height:113px;">
+                            <af:column id="c8" headerText="सिं।न." width="47">
+                                <af:outputText value="#{vs.index+1}" id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Code.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Code.label}" id="c1"
+                                       width="107">
+                                <af:outputText value="#{row.Code}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Code.tooltip}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Position}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Position.label}"
+                                       id="c2" width="216">
+                                <af:outputText value="#{row.Position}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Position.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Namenp.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Namenp.label}" id="c3"
+                                       width="125">
+                                <af:outputText value="#{row.Namenp}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Namenp.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Name.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Name.label}" id="c4"
+                                       width="131">
+                                <af:outputText value="#{row.Name}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Name.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.CurrentUnit.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.CurrentUnit.label}"
+                                       id="c5" width="181">
+                                <af:outputText value="#{row.CurrentUnit}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.CurrentUnit.tooltip}" id="ot5"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Accountno.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Accountno.label}"
+                                       id="c6" width="117">
+                                <af:outputText value="#{row.Accountno}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Accountno.tooltip}" id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Mobileno.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Mobileno.label}"
+                                       id="c7" width="92">
+                                <af:outputText value="#{row.Mobileno}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Mobileno.tooltip}" id="ot7"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PersonPhone1.hints.Email.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PersonPhone1.hints.Email.label}" id="c9"
+                                       width="125">
+                                <af:outputText value="#{row.Email}"
+                                               shortDesc="#{bindings.PersonPhone1.hints.Email.tooltip}" id="ot9"/>
+                            </af:column>
+                        </af:table>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="addNewPopup"
+                        contentDelivery="lazyUncached"
+                                  popupFetchListener="#{viewScope.loanRequestCRUD.loanRequestAddNew}"
+                                  popupCanceledListener="#{viewScope.loanRequestCRUD.popupCancelForPhoneBook}">
+                            <af:dialog id="d2"
+                                       dialogListener="#{viewScope.loanRequestCRUD.okCancelForAddPhoneBookPopup}" closeIconVisible="false"
+                                       title="Create New " resize="on" contentWidth="800" contentHeight="500">
+                                
+                                
+                                  
+                                <af:panelBox id="pbl1" text="Person Details" >
+                                    <af:inputListOfValues id="computercode2Id"
+                                                          popupTitle="Search and Select: #{bindings.Computercode2.hints.label}"
+                                                          value="#{bindings.Computercode2.inputValue}"
+                                                          label="#{bindings.Computercode2.hints.label}"
+                                                          model="#{bindings.Computercode2.listOfValuesModel}"
+                                                          required="#{bindings.Computercode2.hints.mandatory}"
+                                                          columns="#{bindings.Computercode2.hints.displayWidth}"
+                                                          autoSubmit="true"
+                                                          shortDesc="#{bindings.Computercode2.hints.tooltip}">
+                                        <f:validator binding="#{bindings.Computercode2.validator}"/>
+                                    </af:inputListOfValues>
+                                    <af:inputText value="#{bindings.Position.inputValue}"
+                                                  label="#{bindings.Position.hints.label}"
+                                                  required="#{bindings.Position.hints.mandatory}"
+                                                  partialTriggers="computercode2Id"
+                                                  columns="#{bindings.Position.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Position.hints.precision}"
+                                                  shortDesc="#{bindings.Position.hints.tooltip}" id="it1">
+                                        <f:validator binding="#{bindings.Position.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Namenp.inputValue}"
+                                                  label="#{bindings.Namenp.hints.label}"
+                                                  required="#{bindings.Namenp.hints.mandatory}"
+                                                  columns="#{bindings.Namenp.hints.displayWidth}"
+                                                  partialTriggers="computercode2Id"
+                                                  maximumLength="#{bindings.Namenp.hints.precision}"
+                                                  shortDesc="#{bindings.Namenp.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.Namenp.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Name.inputValue}"
+                                                  label="#{bindings.Name.hints.label}"
+                                                  required="#{bindings.Name.hints.mandatory}"
+                                                  columns="#{bindings.Name.hints.displayWidth}"
+                                                  partialTriggers="computercode2Id"
+                                                  maximumLength="#{bindings.Name.hints.precision}"
+                                                  shortDesc="#{bindings.Name.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.Name.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.CurrentUnit.inputValue}"
+                                                  label="#{bindings.CurrentUnit.hints.label}"
+                                                  required="#{bindings.CurrentUnit.hints.mandatory}"
+                                                  columns="#{bindings.CurrentUnit.hints.displayWidth}"
+                                                  maximumLength="#{bindings.CurrentUnit.hints.precision}"
+                                                  partialTriggers="computercode2Id"
+                                                  shortDesc="#{bindings.CurrentUnit.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.CurrentUnit.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Accountno.inputValue}"
+                                                  label="#{bindings.Accountno.hints.label}"
+                                                  required="#{bindings.Accountno.hints.mandatory}"
+                                                  columns="#{bindings.Accountno.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Accountno.hints.precision}"
+                                                  shortDesc="#{bindings.Accountno.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.Accountno.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Mobileno.inputValue}"
+                                                  label="#{bindings.Mobileno.hints.label}"
+                                                  required="#{bindings.Mobileno.hints.mandatory}"
+                                                  columns="#{bindings.Mobileno.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Mobileno.hints.precision}"
+                                                  shortDesc="#{bindings.Mobileno.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.Mobileno.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Email.inputValue}"
+                                                  label="#{bindings.Email.hints.label}"
+                                                  required="#{bindings.Email.hints.mandatory}"
+                                                  columns="#{bindings.Email.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Email.hints.precision}"
+                                                  shortDesc="#{bindings.Email.hints.tooltip}" id="it19">
+                                        <f:validator binding="#{bindings.Email.validator}"/>
+                                    </af:inputText>
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                                <!-- </af:panelFormLayout> -->
+                                
+                            </af:dialog>
+                        </af:popup>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="EditPopup"  contentDelivery="lazyUncached"
+                                  popupCanceledListener="#{viewScope.loanRequestCRUD.popupCancelForPhoneBook}">
+                            <af:dialog id="d3" title="Update Record" closeIconVisible="false" resize="on" contentWidth="800" contentHeight="500"
+                                       dialogListener="#{viewScope.loanRequestCRUD.okCancelForAddPhoneBookPopup}">
+                                <f:facet name="buttonBar"/>
+                               
+                                    <af:panelBox text="PersonDetails" id="pb2">
+                                        <f:facet name="toolbar"/>
+                                        <af:inputListOfValues id="ilov1"
+                                                              popupTitle="Search and Select: #{bindings.Computercode2.hints.label}"
+                                                              value="#{bindings.Computercode2.inputValue}"
+                                                              label="#{bindings.Computercode2.hints.label}"
+                                                              model="#{bindings.Computercode2.listOfValuesModel}"
+                                                              required="#{bindings.Computercode2.hints.mandatory}"
+                                                              autoSubmit="true"
+                                                              columns="#{bindings.Computercode2.hints.displayWidth}"
+                                                              shortDesc="#{bindings.Computercode2.hints.tooltip}">
+                                            <f:validator binding="#{bindings.Computercode2.validator}"/>
+                                        </af:inputListOfValues>
+                                        <af:inputText value="#{bindings.Position.inputValue}"
+                                                      label="#{bindings.Position.hints.label}"
+                                                      required="#{bindings.Position.hints.mandatory}"
+                                                      columns="#{bindings.Position.hints.displayWidth}"
+                                                      partialTriggers="ilov1"
+                                                      maximumLength="#{bindings.Position.hints.precision}"
+                                                      shortDesc="#{bindings.Position.hints.tooltip}" id="it7">
+                                            <f:validator binding="#{bindings.Position.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Namenp.inputValue}"
+                                                      label="#{bindings.Namenp.hints.label}"
+                                                      required="#{bindings.Namenp.hints.mandatory}"
+                                                      partialTriggers="ilov1"
+                                                      columns="#{bindings.Namenp.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Namenp.hints.precision}"
+                                                      shortDesc="#{bindings.Namenp.hints.tooltip}" id="it8">
+                                            <f:validator binding="#{bindings.Namenp.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Name.inputValue}"
+                                                      label="#{bindings.Name.hints.label}"
+                                                      required="#{bindings.Name.hints.mandatory}"
+                                                      columns="#{bindings.Name.hints.displayWidth}"
+                                                      partialTriggers="ilov1"
+                                                      maximumLength="#{bindings.Name.hints.precision}"
+                                                      shortDesc="#{bindings.Name.hints.tooltip}" id="it9">
+                                            <f:validator binding="#{bindings.Name.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CurrentUnit.inputValue}"
+                                                      label="#{bindings.CurrentUnit.hints.label}"
+                                                      required="#{bindings.CurrentUnit.hints.mandatory}"
+                                                      partialTriggers="ilov1"
+                                                      columns="#{bindings.CurrentUnit.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CurrentUnit.hints.precision}"
+                                                      shortDesc="#{bindings.CurrentUnit.hints.tooltip}" id="it10">
+                                            <f:validator binding="#{bindings.CurrentUnit.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Accountno.inputValue}"
+                                                      label="#{bindings.Accountno.hints.label}"
+                                                      required="#{bindings.Accountno.hints.mandatory}"
+                                                      columns="#{bindings.Accountno.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Accountno.hints.precision}"
+                                                      shortDesc="#{bindings.Accountno.hints.tooltip}" id="it11">
+                                            <f:validator binding="#{bindings.Accountno.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Mobileno.inputValue}"
+                                                      label="#{bindings.Mobileno.hints.label}"
+                                                      required="#{bindings.Mobileno.hints.mandatory}"
+                                                      columns="#{bindings.Mobileno.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Mobileno.hints.precision}"
+                                                      shortDesc="#{bindings.Mobileno.hints.tooltip}" id="it12">
+                                            <f:validator binding="#{bindings.Mobileno.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Email.inputValue}"
+                                                      label="#{bindings.Email.hints.label}"
+                                                      required="#{bindings.Email.hints.mandatory}"
+                                                      columns="#{bindings.Email.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Email.hints.precision}"
+                                                      shortDesc="#{bindings.Email.hints.tooltip}" id="it20">
+                                            <f:validator binding="#{bindings.Email.validator}"/>
+                                        </af:inputText>
+                                    </af:panelBox>
+                                
+                            </af:dialog>
+                        </af:popup>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="DeletePopup"  contentDelivery="lazyUncached"
+                                  popupCanceledListener="#{viewScope.loanRequestCRUD.popupCancelForPhoneBook}">
+                            <af:dialog id="d4" title="Delete Record" closeIconVisible="false" resize="on" contentWidth="800" contentHeight="500"
+                                       dialogListener="#{viewScope.loanRequestCRUD.onDeletePhoneBookPopup}">
+                              
+                                    <af:panelBox text="Person Details" id="pb1" >
+                                        <f:facet name="toolbar"/>
+                                        <af:inputListOfValues id="ilov2"
+                                                              popupTitle="Search and Select: #{bindings.Computercode2.hints.label}"
+                                                              value="#{bindings.Computercode2.inputValue}"
+                                                              label="#{bindings.Computercode2.hints.label}"
+                                                              model="#{bindings.Computercode2.listOfValuesModel}"
+                                                              required="#{bindings.Computercode2.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Computercode2.hints.displayWidth}"
+                                                              shortDesc="#{bindings.Computercode2.hints.tooltip}">
+                                            <f:validator binding="#{bindings.Computercode2.validator}"/>
+                                        </af:inputListOfValues>
+                                        <af:inputText value="#{bindings.Position.inputValue}"
+                                                      label="#{bindings.Position.hints.label}"
+                                                      required="#{bindings.Position.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.Position.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Position.hints.precision}"
+                                                      shortDesc="#{bindings.Position.hints.tooltip}" id="it13">
+                                            <f:validator binding="#{bindings.Position.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Namenp.inputValue}"
+                                                      label="#{bindings.Namenp.hints.label}"
+                                                      required="#{bindings.Namenp.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.Namenp.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Namenp.hints.precision}"
+                                                      shortDesc="#{bindings.Namenp.hints.tooltip}" id="it14">
+                                            <f:validator binding="#{bindings.Namenp.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Name.inputValue}"
+                                                      label="#{bindings.Name.hints.label}"
+                                                      required="#{bindings.Name.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.Name.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Name.hints.precision}"
+                                                      shortDesc="#{bindings.Name.hints.tooltip}" id="it15">
+                                            <f:validator binding="#{bindings.Name.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CurrentUnit.inputValue}"
+                                                      label="#{bindings.CurrentUnit.hints.label}"
+                                                      required="#{bindings.CurrentUnit.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.CurrentUnit.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CurrentUnit.hints.precision}"
+                                                      shortDesc="#{bindings.CurrentUnit.hints.tooltip}" id="it16">
+                                            <f:validator binding="#{bindings.CurrentUnit.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Accountno.inputValue}"
+                                                      label="#{bindings.Accountno.hints.label}"
+                                                      required="#{bindings.Accountno.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.Accountno.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Accountno.hints.precision}"
+                                                      shortDesc="#{bindings.Accountno.hints.tooltip}" id="it17">
+                                            <f:validator binding="#{bindings.Accountno.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Mobileno.inputValue}"
+                                                      label="#{bindings.Mobileno.hints.label}"
+                                                      required="#{bindings.Mobileno.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.Mobileno.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Mobileno.hints.precision}"
+                                                      shortDesc="#{bindings.Mobileno.hints.tooltip}" id="it18">
+                                            <f:validator binding="#{bindings.Mobileno.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Email.inputValue}"
+                                                      label="#{bindings.Email.hints.label}"
+                                                      required="#{bindings.Email.hints.mandatory}"
+                                                      columns="#{bindings.Email.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Email.hints.precision}"
+                                                      shortDesc="#{bindings.Email.hints.tooltip}" id="it21">
+                                            <f:validator binding="#{bindings.Email.validator}"/>
+                                        </af:inputText>
+                                    </af:panelBox>
+                                
+                                <f:facet name="buttonBar"/>
+                            </af:dialog>
+                        </af:popup>
+                    </af:panelCollection>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="PersonPhone">
+    <page>/PersonPhone.jsf</page>
+  </view>
+  <view id="LoanApproval">
+    <page>/LoanApproval.jsf</page>
+  </view>
+  <view id="RequestLoan">
+    <page>/RequestLoan.jsf</page>
+  </view>
+  <control-flow-rule id="__2">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>LoanApproval</from-outcome>
+      <to-activity-id>LoanApproval</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>PersonPhone</from-outcome>
+      <to-activity-id>PersonPhone</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>LoanRequest</from-outcome>
+      <to-activity-id>RequestLoan</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__8">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>menu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__9">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__10">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/menu.xml</value>
+    </managed-property>
+  </managed-bean>
+  <managed-bean id="__1">
+    <managed-bean-name>loginBean</managed-bean-name>
+    <managed-bean-class>Loan.Loanview.beans.LoginPageName</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__11">
+    <managed-bean-name>loanValidator</managed-bean-name>
+    <managed-bean-class>Loan.Loanview.LoanValidator</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name>loanRequestCRUD</managed-bean-name>
+    <managed-bean-class>Loan.Loanview.beans.LoanRequestCRUD</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>DisplaySysDate</managed-bean-name>
+    <managed-bean-class>Loan.Loanview.beans.DisplaySysDate</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>ChangePassword</managed-bean-name>
+    <managed-bean-class>Loan.Loanview.beans.ChangePassword</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

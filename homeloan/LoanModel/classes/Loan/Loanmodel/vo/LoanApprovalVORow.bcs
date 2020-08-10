@@ -1,0 +1,19 @@
+//Groovy Scripts for Loan.Loanmodel.vo.LoanApprovalVO
+
+package Loan.Loanmodel.vo
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="Status2")
+def Status2_ExpressionScript_Expression()
+{
+if(Status==1)
+{
+
+"Approved";
+}
+
+else
+"Not Approved";
+}
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+  <itemNode id="itemNode_LoanApproval" label="Aprove Loan" action="LoanApproval" focusViewId="/LoanApproval"
+            visible="#{securityContext.userInRole['LoanApproval']}"/>
+  <itemNode id="itemNode_RequestLoan" label="Request For Loan" action="LoanRequest" focusViewId="/RequestLoan"
+            visible="#{securityContext.userInRole['LoanRequestor']}">
+    <itemNode id="itemNode_PersonPhone" label="PersonDetails" action="PersonPhone" focusViewId="/PersonPhone"/>
+  </itemNode>
+</menu>
+ 

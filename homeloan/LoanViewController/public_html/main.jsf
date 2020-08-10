@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:document title="main.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelStretchLayout id="psl1" topHeight="120px" startWidth="35px">
+               
+                <f:facet name="start">
+                    
+                    <af:spacer width="50" height="10" id="s2"/>
+                </f:facet>
+                 
+                <f:facet name="top">
+                    <af:panelSplitter id="ps1" splitterPosition="1222">
+                        <f:facet name="first">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:image source="/images/Nepalpolice.png" shortDesc="Nepal Police Banner" id="i1"
+                                          inlineStyle="height:106px; width:950px;"/>
+                               
+                                 
+                            </af:panelGroupLayout>
+                        </f:facet>
+                       <f:facet name="second">
+                        
+                            <af:panelGroupLayout halign="left">
+                            
+                            <af:goLink text="Login"
+                                                       destination='#{securityContext.authenticated ? "/adfAuthentication?logout=true&amp;end_url=/faces/LoginPage.jsf" : "/adfAuthentication?success_url=/faces/LoginPage.jsf"}'
+                                                       inlineStyle="color:Blue; font-size:14px; font-weight:bold; text-align: left;"
+                                                       id="gl1">
+                                   
+                                </af:goLink>
+                                </af:panelGroupLayout>
+                       </f:facet>
+                         
+                    </af:panelSplitter>
+               
+                    
+                   
+                </f:facet>
+               
+                 <f:facet name="center" >
+                    <af:panelStretchLayout id="psl2" endWidth="8px" startWidth="18px">
+                        <f:facet name="start"/>
+                        <f:facet name="end"/>
+                        <f:facet name="top" >
+                            <af:panelGroupLayout id="pgl2" halign="center">
+                                <af:outputText
+                                               value="कर्जा स्वीकृत भएका प्रहरी क्रमचारीहरूको नामावली विवरणः (आजको मिति : #{DisplaySysDate.s})" id="ot12"
+                                               inlineStyle="font-size:large;-moz-font-weight: 500;"/>
+                            </af:panelGroupLayout>
+                           
+                        </f:facet>
+                        
+                        <f:facet name="center">
+                         <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                        <af:toolbar id="t3">
+                                            <af:button text="Export" id="b1">
+                                                <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                                                   filename="approvedLoan.xls"/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </af:toolbar>
+                        </f:facet>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.LoanApprovalRVO1.collectionModel}" var="row"
+                                          rows="#{bindings.LoanApprovalRVO1.rangeSize}"
+                                          emptyText="#{bindings.LoanApprovalRVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.LoanApprovalRVO1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.LoanApprovalRVO1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.LoanApprovalRVO1.rangeSize}"
+                                          filterModel="#{bindings.LoanApprovalRVO1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.LoanApprovalRVO1Query.processQuery}" varStatus="vs"
+                                          id="t1" width="1200">
+                                    <af:column id="c11" headerText="सिं.न." width="35">
+                                        <af:outputText value="#{vs.index+1}" id="ot11"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Loaner.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.Loaner.label}" id="c1"
+                                               width="89">
+                                        <af:outputText value="#{row.Loaner}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Loaner.tooltip}"
+                                                       id="ot1"/>
+                                    </af:column>
+                                    
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Position.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.Position.label}" id="c3"
+                                               width="132">
+                                        <af:outputText value="#{row.Position}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Position.tooltip}"
+                                                       id="ot3"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Namenp.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.Namenp.label}" id="c2"
+                                               width="147">
+                                        <af:outputText value="#{row.Namenp}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Namenp.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.CurrentUnit.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.CurrentUnit.label}"
+                                               id="c4" width="209">
+                                        <af:outputText value="#{row.CurrentUnit}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.CurrentUnit.tooltip}"
+                                                       id="ot4"/>
+                                    </af:column>
+                                    
+                                    
+                                    
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Principal.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.Principal.label}" id="c8"
+                                               width="66">
+                                        <af:outputText value="#{row.Principal}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Principal.tooltip}"
+                                                       id="ot8">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.LoanApprovalRVO1.hints.Principal.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                   
+                                   
+                                   
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Accountno.name}"
+                                               filterable="true" sortable="true"
+                                    
+                                    
+                                    
+                                    headerText="#{bindings.LoanApprovalRVO1.hints.Accountno.label}" id="c7">
+                                        <af:outputText value="#{row.Accountno}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Accountno.tooltip}"
+                                                       id="ot7"/>
+                                    </af:column>
+                                  
+                                  
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Rate.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.Rate.label}" id="c9"
+                                               width="75">
+                                        <af:outputText value="#{row.Rate}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Rate.tooltip}"
+                                                       id="ot9">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.LoanApprovalRVO1.hints.Rate.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Emi.name}"
+                                               filterable="true" sortable="true"
+                                    
+                                    
+                                    
+                                    headerText="#{bindings.LoanApprovalRVO1.hints.Emi.label}" id="c5">
+                                        <af:outputText value="#{row.Emi}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Emi.tooltip}"
+                                                       id="ot5">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.LoanApprovalRVO1.hints.Emi.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Approveddate.name}"
+                                               filterable="true" sortable="true"
+                                    
+                                    headerText="#{bindings.LoanApprovalRVO1.hints.Approveddate.label}"
+                                               id="c6">
+                                        <af:outputText value="#{row.Approveddate}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Approveddate.tooltip}"
+                                                       id="ot6"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.LoanApprovalRVO1.hints.Status.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.LoanApprovalRVO1.hints.Status.label}" id="c10"
+                                               width="71">
+                                        <af:outputText value="#{row.Status}"
+                                                       shortDesc="#{bindings.LoanApprovalRVO1.hints.Status.tooltip}"
+                                                       id="ot10"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                
+         
+            </af:panelStretchLayout>
+            
+           
+        </af:form>
+        
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:DisplaySysDate-->
+</f:view>

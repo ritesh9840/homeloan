@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="LoginPage.jsf" id="d1">
+        <af:form id="f1" defaultCommand="b1">
+            <af:panelStretchLayout id="psl1" topHeight="120px">
+                
+              
+                <f:facet name="top" >
+                    <af:panelGroupLayout id="pgl1" >
+                        <af:image source="/images/Nepalpolice.png" shortDesc="Nepal Police Banner"
+                                  inlineStyle="width:950px; height:106px;" id="i1"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                    <af:panelBox text="Login Information" id="pb1" >
+                       
+                        <af:panelFormLayout id="pfl1" inlineStyle="width:379px;">
+                            <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
+                            <af:inputText label="Password" id="it2" secret="true" value="#{loginBean.password}"/>
+                            <f:facet name="footer">
+                                <af:panelBorderLayout id="pbl1" inlineStyle="height:43px;">
+                                    <f:facet name="start">
+                                        <af:button text="Login" id="b1" action="#{loginBean.doLogin}"/>
+                                    </f:facet>
+                                </af:panelBorderLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:panelBox>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:loginBean-->
+</f:view>
