@@ -19,7 +19,7 @@
         <Contents>tdb</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="user">
-        <Contents>lms</Contents>
+        <Contents>homeloan</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>

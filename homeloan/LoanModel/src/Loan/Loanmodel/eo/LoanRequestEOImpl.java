@@ -61,6 +61,10 @@ public class LoanRequestEOImpl extends EntityImpl {
         Remarks,
         Createdby,
         Createdon,
+        LandownerName,
+        AddressOfLand,
+        Relationship,
+        LocalBodyName,
         PersonEO,
         POLICE_PERSON,
         POLICE_PERSON1,
@@ -100,6 +104,10 @@ public class LoanRequestEOImpl extends EntityImpl {
     public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int CREATEDBY = AttributesEnum.Createdby.index();
     public static final int CREATEDON = AttributesEnum.Createdon.index();
+    public static final int LANDOWNERNAME = AttributesEnum.LandownerName.index();
+    public static final int ADDRESSOFLAND = AttributesEnum.AddressOfLand.index();
+    public static final int RELATIONSHIP = AttributesEnum.Relationship.index();
+    public static final int LOCALBODYNAME = AttributesEnum.LocalBodyName.index();
     public static final int PERSONEO = AttributesEnum.PersonEO.index();
     public static final int POLICE_PERSON = AttributesEnum.POLICE_PERSON.index();
     public static final int POLICE_PERSON1 = AttributesEnum.POLICE_PERSON1.index();
@@ -280,6 +288,70 @@ public class LoanRequestEOImpl extends EntityImpl {
         return (Timestamp) getAttributeInternal(CREATEDON);
     }
 
+
+    /**
+     * Gets the attribute value for LandownerName, using the alias name LandownerName.
+     * @return the value of LandownerName
+     */
+    public String getLandownerName() {
+        return (String) getAttributeInternal(LANDOWNERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for LandownerName.
+     * @param value value to set the LandownerName
+     */
+    public void setLandownerName(String value) {
+        setAttributeInternal(LANDOWNERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for AddressOfLand, using the alias name AddressOfLand.
+     * @return the value of AddressOfLand
+     */
+    public String getAddressOfLand() {
+        return (String) getAttributeInternal(ADDRESSOFLAND);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for AddressOfLand.
+     * @param value value to set the AddressOfLand
+     */
+    public void setAddressOfLand(String value) {
+        setAttributeInternal(ADDRESSOFLAND, value);
+    }
+
+    /**
+     * Gets the attribute value for Relationship, using the alias name Relationship.
+     * @return the value of Relationship
+     */
+    public BigDecimal getRelationship() {
+        return (BigDecimal) getAttributeInternal(RELATIONSHIP);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Relationship.
+     * @param value value to set the Relationship
+     */
+    public void setRelationship(BigDecimal value) {
+        setAttributeInternal(RELATIONSHIP, value);
+    }
+
+    /**
+     * Gets the attribute value for LocalBodyName, using the alias name LocalBodyName.
+     * @return the value of LocalBodyName
+     */
+    public String getLocalBodyName() {
+        return (String) getAttributeInternal(LOCALBODYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for LocalBodyName.
+     * @param value value to set the LocalBodyName
+     */
+    public void setLocalBodyName(String value) {
+        setAttributeInternal(LOCALBODYNAME, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.

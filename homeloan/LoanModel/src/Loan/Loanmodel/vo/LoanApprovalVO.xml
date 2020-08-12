@@ -59,6 +59,10 @@
     Name="ShowUserLov1"
     ViewObjectName="Loan.Loanmodel.vo.ShowUserLov"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationView1"
+    ViewObjectName="Loan.Loanmodel.vo.RelationView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Loaner"
     ListVOName="PolicePersonLov2"

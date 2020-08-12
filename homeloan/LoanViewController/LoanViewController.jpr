@@ -185,8 +185,8 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="LoanRequest"/>
-      <value n="j2eeWebContextRoot" v="LoanRequest"/>
+      <value n="j2eeWebAppName" v="homeloan"/>
+      <value n="j2eeWebContextRoot" v="homeloan"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">

@@ -60,6 +60,14 @@
     Name="PolicePersonLov2"
     ViewObjectName="Loan.Loanmodel.vo.PolicePersonLov"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationView1"
+    ViewObjectName="Loan.Loanmodel.vo.RelationView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Relation1"
+    ViewObjectName="Loan.Loanmodel.vo.Relation"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Position"
     ListVOName="AppModule_RankLov1_1"

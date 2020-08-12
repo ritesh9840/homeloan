@@ -71,7 +71,8 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         ApprovalStatusLOV2,
         UserLov1,
         ApprovalStatusLOV3,
-        ShowUserLov1;
+        ShowUserLov1,
+        RelationView1;
         private static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -138,6 +139,7 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
     public static final int USERLOV1 = AttributesEnum.UserLov1.index();
     public static final int APPROVALSTATUSLOV3 = AttributesEnum.ApprovalStatusLOV3.index();
     public static final int SHOWUSERLOV1 = AttributesEnum.ShowUserLov1.index();
+    public static final int RELATIONVIEW1 = AttributesEnum.RelationView1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -603,6 +605,13 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
      */
     public RowSet getShowUserLov1() {
         return (RowSet) getAttributeInternal(SHOWUSERLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> RelationView1.
+     */
+    public RowSet getRelationView1() {
+        return (RowSet) getAttributeInternal(RELATIONVIEW1);
     }
 }
 

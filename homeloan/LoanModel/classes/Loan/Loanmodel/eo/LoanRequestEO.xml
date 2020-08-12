@@ -72,7 +72,7 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="LOANREQUEST"
-    DefaultValue="7"/>
+    DefaultValue="6"/>
   <Attribute
     Name="Principal"
     Precision="15"
@@ -140,6 +140,78 @@
     TableName="LOANREQUEST"
     IsUpdateable="while_insert"
     HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="LandownerName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="LANDOWNER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LOANREQUEST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.eo.LoanRequestEO.LandownerName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AddressOfLand"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="ADDRESS_OF_LAND"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LOANREQUEST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.eo.LoanRequestEO.AddressOfLand_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Relationship"
+    IsNotNull="true"
+    ColumnName="RELATIONSHIP"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="LOANREQUEST">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.eo.LoanRequestEO.Relationship_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="LocalBodyName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="LOCAL_BODY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LOANREQUEST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.eo.LoanRequestEO.LocalBodyName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="PersonEO"
     Association="Loan.Loanmodel.ao.PersonLoanAO"
@@ -191,6 +263,16 @@
     </AttrArray>
   </Key>
   <Key
+    Name="LoanrequestLocalBodyNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"LOCAL_BODY_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="LOANREQUEST_LOCAL_BODY_NAME_CH"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
     Name="fk_LoanRequestEO">
     <DesignTime>
       <Attr Name="_referencedKey" Value="PERSONEO_PRIMARY_KEY"/>
@@ -223,4 +305,8 @@
       <Item Value="Loan.Loanmodel.eo.LoanRequestEO.Aprovedby"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Loan.Loanmodel.LoanModelBundle"/>
+  </ResourceBundle>
 </Entity>

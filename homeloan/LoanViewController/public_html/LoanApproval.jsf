@@ -164,6 +164,8 @@
                                         <f:validator binding="#{bindings.Rate.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
                                     </af:inputText>
+                                    
+                                    
                                     <af:inputText value="#{bindings.Remarks.inputValue}"
                                                   label="#{bindings.Remarks.hints.label}"
                                                   required="#{bindings.Remarks.hints.mandatory}"
@@ -172,7 +174,6 @@
                                                   shortDesc="#{bindings.Remarks.hints.tooltip}" id="it12">
                                         <f:validator binding="#{bindings.Remarks.validator}"/>
                                     </af:inputText>
-                                   
                                     
                                     <af:inputComboboxListOfValues id="status2Id"
                                                                   popupTitle="Search and Select: #{bindings.Status2.hints.label}"

@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="test3.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/loantemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="Center">
+                    <af:table value="#{bindings.LoanRequestVO1.collectionModel}" var="row"
+                              rows="#{bindings.LoanRequestVO1.rangeSize}"
+                              emptyText="#{bindings.LoanRequestVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.LoanRequestVO1.rangeSize}"
+                              filterModel="#{bindings.LoanRequestVO1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.LoanRequestVO1Query.processQuery}" varStatus="vs" id="t1">
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Id.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Id.label}" id="c1">
+                            <af:outputText value="#{row.Id}" shortDesc="#{bindings.LoanRequestVO1.hints.Id.tooltip}"
+                                           id="ot1">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LoanRequestVO1.hints.Id.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Loaner.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Loaner.label}" id="c2">
+                            <af:outputText value="#{row.Loaner}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Loaner.tooltip}" id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Namenp.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Namenp.label}" id="c3">
+                            <af:outputText value="#{row.Namenp}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Namenp.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.FatherName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.FatherName.label}"
+                                   id="c4">
+                            <af:outputText value="#{row.FatherName}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.FatherName.tooltip}" id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.GrandFatherName.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.LoanRequestVO1.hints.GrandFatherName.label}" id="c5">
+                            <af:outputText value="#{row.GrandFatherName}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.GrandFatherName.tooltip}"
+                                           id="ot5"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Address.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Address.label}" id="c6">
+                            <af:outputText value="#{row.Address}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Address.tooltip}" id="ot6"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Accountno.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Accountno.label}"
+                                   id="c7">
+                            <af:outputText value="#{row.Accountno}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Accountno.tooltip}" id="ot7"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Mobileno.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Mobileno.label}" id="c8">
+                            <af:outputText value="#{row.Mobileno}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Mobileno.tooltip}" id="ot8"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Email.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Email.label}" id="c9">
+                            <af:outputText value="#{row.Email}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Email.tooltip}" id="ot9"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Moj.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Moj.label}" id="c10">
+                            <af:outputText value="#{row.Moj}" shortDesc="#{bindings.LoanRequestVO1.hints.Moj.tooltip}"
+                                           id="ot10"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Mor.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Mor.label}" id="c11">
+                            <af:outputText value="#{row.Mor}" shortDesc="#{bindings.LoanRequestVO1.hints.Mor.tooltip}"
+                                           id="ot11"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Code.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Code.label}" id="c12">
+                            <af:outputText value="#{row.Code}" shortDesc="#{bindings.LoanRequestVO1.hints.Code.tooltip}"
+                                           id="ot12"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Position.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Position.label}"
+                                   id="c13">
+                            <af:outputText value="#{row.Position}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Position.tooltip}" id="ot13"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.CurrentUnit.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.CurrentUnit.label}"
+                                   id="c14">
+                            <af:outputText value="#{row.CurrentUnit}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.CurrentUnit.tooltip}" id="ot14"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.NpDate.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.NpDate.label}" id="c15">
+                            <af:outputText value="#{row.NpDate}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.NpDate.tooltip}" id="ot15"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.EnDate.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.EnDate.label}" id="c16">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.LoanRequestVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EnDate.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.LoanRequestVO1.hints.EnDate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.EnDate}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.EnDate.tooltip}" id="ot16">
+                                <af:convertDateTime pattern="#{bindings.LoanRequestVO1.hints.EnDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Principal.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Principal.label}"
+                                   id="c17">
+                            <af:outputText value="#{row.Principal}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Principal.tooltip}" id="ot17">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LoanRequestVO1.hints.Principal.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Rate.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Rate.label}" id="c18">
+                            <af:outputText value="#{row.Rate}" shortDesc="#{bindings.LoanRequestVO1.hints.Rate.tooltip}"
+                                           id="ot18">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LoanRequestVO1.hints.Rate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.LandownerName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.LandownerName.label}"
+                                   id="c19">
+                            <af:outputText value="#{row.LandownerName}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.LandownerName.tooltip}"
+                                           id="ot19"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.AddressOfLand.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.AddressOfLand.label}"
+                                   id="c20">
+                            <af:outputText value="#{row.AddressOfLand}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.AddressOfLand.tooltip}"
+                                           id="ot20"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Relationship.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Relationship.label}"
+                                   id="c21">
+                            <af:outputText value="#{row.Relationship}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Relationship.tooltip}" id="ot21">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LoanRequestVO1.hints.Relationship.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.LocalBodyName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.LocalBodyName.label}"
+                                   id="c22">
+                            <af:outputText value="#{row.LocalBodyName}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.LocalBodyName.tooltip}"
+                                           id="ot22"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Status.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Status.label}" id="c23">
+                            <af:outputText value="#{row.Status}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Status.tooltip}" id="ot23">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.LoanRequestVO1.hints.Status.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Remarks.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Remarks.label}" id="c24">
+                            <af:outputText value="#{row.Remarks}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Remarks.tooltip}" id="ot24"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Aprovedby.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Aprovedby.label}"
+                                   id="c25">
+                            <af:outputText value="#{row.Aprovedby}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Aprovedby.tooltip}" id="ot25"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Namenp1.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Namenp1.label}" id="c26">
+                            <af:outputText value="#{row.Namenp1}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Namenp1.tooltip}" id="ot26"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Code1.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Code1.label}" id="c27">
+                            <af:outputText value="#{row.Code1}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Code1.tooltip}" id="ot27"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Position1.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Position1.label}"
+                                   id="c28">
+                            <af:outputText value="#{row.Position1}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Position1.tooltip}" id="ot28"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.CurrentUnit1.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.CurrentUnit1.label}"
+                                   id="c29">
+                            <af:outputText value="#{row.CurrentUnit1}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.CurrentUnit1.tooltip}" id="ot29"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Createdby.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Createdby.label}"
+                                   id="c30">
+                            <af:outputText value="#{row.Createdby}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Createdby.tooltip}" id="ot30"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Createdon.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Createdon.label}"
+                                   id="c31">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.LoanRequestVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Createdon.value}"
+                                              id="id2">
+                                    <af:convertDateTime pattern="#{bindings.LoanRequestVO1.hints.Createdon.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.Createdon}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Createdon.tooltip}" id="ot31">
+                                <af:convertDateTime pattern="#{bindings.LoanRequestVO1.hints.Createdon.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.LoanRequestVO1.hints.Status2.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.LoanRequestVO1.hints.Status2.label}" id="c32">
+                            <af:outputText value="#{row.Status2}"
+                                           shortDesc="#{bindings.LoanRequestVO1.hints.Status2.tooltip}" id="ot32"/>
+                        </af:column>
+                    </af:table>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

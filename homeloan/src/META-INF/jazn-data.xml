@@ -154,6 +154,16 @@
                                 <name>Loan.Loanview.pageDefs.testjsfPageDef</name>
                                 <actions>view</actions>
                             </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>Loan.Loanview.pageDefs.test2PageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RestServicePermission</class>
+                                <name>/test2.jsf</name>
+                                <actions>get, create, update, delete, describe, invoke</actions>
+                            </permission>
                         </permissions>
                     </grant>
                     <grant>
@@ -246,6 +256,11 @@
                                 <name>Loan.Loanview.pageDefs.changepasswordPageDef</name>
                                 <actions>view</actions>
                             </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>Loan.Loanview.pageDefs.test3PageDef</name>
+                                <actions>view</actions>
+                            </permission>
                         </permissions>
                     </grant>
                     <grant>
@@ -276,6 +291,11 @@
                             <permission>
                                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                                 <name>Loan.Loanview.pageDefs.changepasswordPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>Loan.Loanview.pageDefs.test3PageDef</name>
                                 <actions>view</actions>
                             </permission>
                         </permissions>
@@ -313,6 +333,11 @@
                             <permission>
                                 <class>oracle.adf.share.security.authorization.RegionPermission</class>
                                 <name>Loan.Loanview.pageDefs.loantemplatePageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>Loan.Loanview.pageDefs.test3PageDef</name>
                                 <actions>view</actions>
                             </permission>
                         </permissions>

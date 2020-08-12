@@ -8,6 +8,7 @@
     <iterator Binds="LoanRequestVO1" RangeSize="25" DataControl="AppModuleDataControl" id="LoanRequestVO1Iterator"/>
     <searchRegion Binds="LoanRequestVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LoanRequestVO1Query"/>
+    <iterator Binds="LoanApprovalVO1" RangeSize="25" DataControl="AppModuleDataControl" id="LoanApprovalVO1Iterator"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="LoanRequestVO1Iterator" StaticList="false" Uses="LOV_Loaner" id="Loaner"/>

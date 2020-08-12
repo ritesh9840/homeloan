@@ -25,6 +25,9 @@
     <page path="/changepassword.jsf" usageId="Loan_Loanview_changepasswordPageDef"/>
     <page path="/test.jsf" usageId="Loan_Loanview_testPageDef"/>
     <page path="/testjsf.jsf" usageId="Loan_Loanview_testjsfPageDef"/>
+    <page path="/test2.jsf" usageId="Loan_Loanview_test2PageDef"/>
+    <page path="/test2.jsf" usageId="Loan_Loanview_untitled1PageDef"/>
+    <page path="/test3.jsf" usageId="Loan_Loanview_test3PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Loan_Loanview_loantemplatePageDef" path="Loan.Loanview.pageDefs.loantemplatePageDef"/>
@@ -37,6 +40,9 @@
     <page id="Loan_Loanview_changepasswordPageDef" path="Loan.Loanview.pageDefs.changepasswordPageDef"/>
     <page id="Loan_Loanview_testPageDef" path="Loan.Loanview.pageDefs.testPageDef"/>
     <page id="Loan_Loanview_testjsfPageDef" path="Loan.Loanview.pageDefs.testjsfPageDef"/>
+    <page id="Loan_Loanview_test2PageDef" path="Loan.Loanview.pageDefs.test2PageDef"/>
+    <page id="Loan_Loanview_untitled1PageDef" path="Loan.Loanview.pageDefs.untitled1PageDef"/>
+    <page id="Loan_Loanview_test3PageDef" path="Loan.Loanview.pageDefs.test3PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="Loan.Loanmodel"

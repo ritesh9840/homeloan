@@ -40,14 +40,11 @@ public class LoanValidator {
 
         FacesMessage fm = null;
         String s = object.toString();
-            if ( s.trim().length()!=0) 
-            {
-           
-           
-            try {
-          
+        if (s.trim().length() != 0) {
 
-           
+
+            try {
+
 
                 int computer_code = Integer.parseInt(object.toString());
                 System.out.println("Loan inside Loan validatoor" + computer_code);
@@ -61,9 +58,19 @@ public class LoanValidator {
                 String account = getNameOfCode("PHONEBOOK", "COMPUTERCODE", "ACCOUNTNO", object.toString());
                 String email = getNameOfCode("PHONEBOOK", "COMPUTERCODE", "EMAIL", object.toString());
                 String mobile = getNameOfCode("PHONEBOOK", "COMPUTERCODE", "MOBILENO", object.toString());
+                int rankorder =
+                    Integer.parseInt(getNameOfCode("POLICE_PERSON", "CODE", "RANKORDER", object.toString()));
 
+                if (rankorder <= 7) {
+                    fm =
+                        new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                         "You are senior officer !, you are ineligible to apply Home loan",
+                                         " You  should apply for another types of loan");
+                    computerCode.resetValue();
+                    throw new ValidatorException(fm);
+                }
 
-                if (account == null)
+                else if (account == null)
 
                 {
 
@@ -73,7 +80,7 @@ public class LoanValidator {
                                          " You have to Fill the Account Number in Person Details Form First");
                     computerCode.resetValue();
                     throw new ValidatorException(fm);
-                    
+
 
                 }
 
@@ -120,9 +127,9 @@ public class LoanValidator {
                     throw new ValidatorException(fm);
                 }
 
-           
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
@@ -212,8 +219,6 @@ public class LoanValidator {
     }
 
 
-
-
     float getLoanAmount(int pcode, java.util.Date date) {
         BindingContext bctx = BindingContext.getCurrent();
 
@@ -290,15 +295,33 @@ public class LoanValidator {
         String account = getNameOfCode("PHONEBOOK", "COMPUTERCODE", "ACCOUNTNO", String.valueOf(computer_code));
         String email = getNameOfCode("PHONEBOOK", "COMPUTERCODE", "EMAIL", String.valueOf(computer_code));
         String mobile = getNameOfCode("PHONEBOOK", "COMPUTERCODE", "MOBILENO", String.valueOf(computer_code));
-        int  status=checkunique(computer_code);
+        int status = checkunique(computer_code);
+
+        int rankorder =
+            Integer.parseInt(getNameOfCode("POLICE_PERSON", "CODE", "RANKORDER", String.valueOf(computer_code)));
         
-        System.out.println("status ="+status);
+
+        System.out.println("status =" + status);
         
+        if(rankorder<=7){
+            
+            fm =
+                new FacesMessage("You are senior officer !, you are ineligible to apply Home loan" +
+                                 ", You should apply for another types of loan");
+
+            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, fm);
+            computerCode.resetValue();
+            
+        }
         
-        if(status!=0) {
-            
-            
-            
+
+
+       else if (status != 0) {
+
+
             fm =
                 new FacesMessage("You are ineligible to take loan! Dublicate Request is not allowd " +
                                  ", Your Form is allready in progress");
@@ -308,7 +331,7 @@ public class LoanValidator {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, fm);
             computerCode.resetValue();
-            
+
         }
 
 

@@ -169,6 +169,10 @@
                                         <f:validator binding="#{bindings.Rate.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
                                     </af:inputText>
+                                    
+                                    
+                                    
+                                    
                                     <af:selectOneChoice value="#{bindings.Status.inputValue}" visible="false"
                                                         label="#{bindings.Status.label}"
                                                         required="#{bindings.Status.hints.mandatory}"
@@ -303,6 +307,7 @@
                                         <f:validator binding="#{bindings.Rate.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
                                     </af:inputText>
+                                    
                                     <af:inputText value="#{bindings.Remarks.inputValue}"
                                                   label="#{bindings.Remarks.hints.label}"
                                                   required="#{bindings.Remarks.hints.mandatory}"
