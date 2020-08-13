@@ -6,6 +6,8 @@ import Loan.Loanmodel.vo.common.LoanApprovalVORow;
 
 import java.math.BigDecimal;
 
+import java.math.BigInteger;
+
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -59,6 +61,10 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         Position1,
         Positionen1,
         CurrentUnit1,
+        Relation,
+        LandownerName,
+        AddressOfLand,
+        Localbody,
         Createdby,
         Createdon,
         Status2,
@@ -126,6 +132,10 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
     public static final int POSITION1 = AttributesEnum.Position1.index();
     public static final int POSITIONEN1 = AttributesEnum.Positionen1.index();
     public static final int CURRENTUNIT1 = AttributesEnum.CurrentUnit1.index();
+    public static final int RELATION = AttributesEnum.Relation.index();
+    public static final int LANDOWNERNAME = AttributesEnum.LandownerName.index();
+    public static final int ADDRESSOFLAND = AttributesEnum.AddressOfLand.index();
+    public static final int LOCALBODY = AttributesEnum.Localbody.index();
     public static final int CREATEDBY = AttributesEnum.Createdby.index();
     public static final int CREATEDON = AttributesEnum.Createdon.index();
     public static final int STATUS2 = AttributesEnum.Status2.index();
@@ -505,6 +515,34 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         return (String) getAttributeInternal(CURRENTUNIT1);
     }
 
+
+    /**
+     * Gets the attribute value for the calculated attribute LandownerName.
+     * @return the LandownerName
+     */
+    public String getLandownerName() {
+        return (String) getAttributeInternal(LANDOWNERNAME);
+    }
+
+
+    /**
+     * Gets the attribute value for the calculated attribute AddressOfLand.
+     * @return the AddressOfLand
+     */
+    public String getAddressOfLand() {
+        return (String) getAttributeInternal(ADDRESSOFLAND);
+    }
+
+
+    /**
+     * Gets the attribute value for the calculated attribute Localbody.
+     * @return the Localbody
+     */
+    public String getLocalbody() {
+        return (String) getAttributeInternal(LOCALBODY);
+    }
+
+
     /**
      * Gets the attribute value for CREATEDBY using the alias name Createdby.
      * @return the CREATEDBY
@@ -528,6 +566,15 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
     public String getStatus2() {
         return (String) getAttributeInternal(STATUS2);
     }
+
+    /**
+     * Gets the attribute value for RELATION using the alias name Relation.
+     * @return the RELATION
+     */
+    public BigDecimal getRelation() {
+        return (BigDecimal) getAttributeInternal(RELATION);
+    }
+
 
     /**
      * Gets the attribute value for the calculated attribute showUser.

@@ -343,15 +343,15 @@ public class LoanRequestEOImpl extends EntityImpl {
      * Gets the attribute value for Relation, using the alias name Relation.
      * @return the value of Relation
      */
-    public Integer getRelation() {
-        return (Integer) getAttributeInternal(RELATION);
+    public BigDecimal getRelation() {
+        return (BigDecimal) getAttributeInternal(RELATION);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Relation.
      * @param value value to set the Relation
      */
-    public void setRelation(Integer value) {
+    public void setRelation(BigDecimal value) {
         setAttributeInternal(RELATION, value);
     }
 

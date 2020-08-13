@@ -60,7 +60,8 @@ public class LoanRequestVORowImpl extends ViewRowImpl {
         AppModule_PolicePersonLov1_2,
         PolicePersonLov1,
         ApprovalStatusLOV1,
-        PolicePersonLov2;
+        PolicePersonLov2,
+        Relation1;
         private static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -124,6 +125,7 @@ public class LoanRequestVORowImpl extends ViewRowImpl {
     public static final int POLICEPERSONLOV1 = AttributesEnum.PolicePersonLov1.index();
     public static final int APPROVALSTATUSLOV1 = AttributesEnum.ApprovalStatusLOV1.index();
     public static final int POLICEPERSONLOV2 = AttributesEnum.PolicePersonLov2.index();
+    public static final int RELATION1 = AttributesEnum.Relation1.index();
 
     /**
      * This is the default constructor (do not remove).

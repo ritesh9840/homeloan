@@ -185,10 +185,22 @@
                                                   shortDesc="#{bindings.AddressOfLand.hints.tooltip}" id="it25">
                                         <f:validator binding="#{bindings.AddressOfLand.validator}"/>
                                     </af:inputText>
-                                    
-                                    
-                                   
-                                    </af:panelBox>
+                                    <af:selectOneChoice value="#{bindings.Relation.inputValue}"
+                                                        label="#{bindings.Relation.label}"
+                                                        required="#{bindings.Relation.hints.mandatory}"
+                                                        shortDesc="#{bindings.Relation.hints.tooltip}" id="soc2">
+                                        <f:selectItems value="#{bindings.Relation.items}" id="si2"/>
+                                        <f:validator binding="#{bindings.Relation.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputText value="#{bindings.Localbody.inputValue}"
+                                                  label="#{bindings.Localbody.hints.label}"
+                                                  required="#{bindings.Localbody.hints.mandatory}"
+                                                  columns="#{bindings.Localbody.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Localbody.hints.precision}"
+                                                  shortDesc="#{bindings.Localbody.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.Localbody.validator}"/>
+                                    </af:inputText>
+                                </af:panelBox>
                                     <af:panelBox text="स्वीकृत कर्ता" id="pb2" inlineStyle="width:800px;">
                                     <af:inputListOfValues id="aprovedby1Id"
                                                           popupTitle="Search and Select: #{bindings.Aprovedby1.hints.label}"
@@ -306,7 +318,37 @@
                                         <f:validator binding="#{bindings.Rate.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
                                     </af:inputText>
-                                    
+                                    <af:inputText value="#{bindings.LandownerName.inputValue}"
+                                                  label="#{bindings.LandownerName.hints.label}"
+                                                  required="#{bindings.LandownerName.hints.mandatory}"
+                                                  columns="#{bindings.LandownerName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.LandownerName.hints.precision}"
+                                                  shortDesc="#{bindings.LandownerName.hints.tooltip}" id="it35">
+                                        <f:validator binding="#{bindings.LandownerName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.AddressOfLand.inputValue}"
+                                                  label="#{bindings.AddressOfLand.hints.label}"
+                                                  required="#{bindings.AddressOfLand.hints.mandatory}"
+                                                  columns="#{bindings.AddressOfLand.hints.displayWidth}"
+                                                  maximumLength="#{bindings.AddressOfLand.hints.precision}"
+                                                  shortDesc="#{bindings.AddressOfLand.hints.tooltip}" id="it41">
+                                        <f:validator binding="#{bindings.AddressOfLand.validator}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.Relation.inputValue}"
+                                                        label="#{bindings.Relation.label}"
+                                                        required="#{bindings.Relation.hints.mandatory}"
+                                                        shortDesc="#{bindings.Relation.hints.tooltip}" id="soc4">
+                                        <f:selectItems value="#{bindings.Relation.items}" id="si4"/>
+                                        <f:validator binding="#{bindings.Relation.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputText value="#{bindings.Localbody.inputValue}"
+                                                  label="#{bindings.Localbody.hints.label}"
+                                                  required="#{bindings.Localbody.hints.mandatory}"
+                                                  columns="#{bindings.Localbody.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Localbody.hints.precision}"
+                                                  shortDesc="#{bindings.Localbody.hints.tooltip}" id="it42">
+                                        <f:validator binding="#{bindings.Localbody.validator}"/>
+                                    </af:inputText>
                                     <af:inputText value="#{bindings.Remarks.inputValue}"
                                                   label="#{bindings.Remarks.hints.label}"
                                                   required="#{bindings.Remarks.hints.mandatory}"
@@ -315,6 +357,9 @@
                                                   shortDesc="#{bindings.Remarks.hints.tooltip}" id="it18">
                                         <f:validator binding="#{bindings.Remarks.validator}"/>
                                     </af:inputText>
+                                    
+                                    
+                
                                 </af:panelBox>
                                 <af:panelBox text="स्वीकृत कर्ता" id="pb4">
                                     <af:inputText value="#{bindings.Aprovedby.inputValue}"
