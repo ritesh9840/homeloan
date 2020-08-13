@@ -12,9 +12,9 @@
   RowClass="Loan.Loanmodel.vo.LoanRequestVORowImpl"
   ComponentClass="Loan.Loanmodel.vo.LoanRequestVOImpl">
   <DesignTime>
-    <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_codeGenFlag2" Value="Coll"/>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -60,19 +60,14 @@
     Name="PolicePersonLov2"
     ViewObjectName="Loan.Loanmodel.vo.PolicePersonLov"
     RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="RelationView1"
-    ViewObjectName="Loan.Loanmodel.vo.RelationView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="Relation1"
-    ViewObjectName="Loan.Loanmodel.vo.Relation"
-    RowLevelBinds="true"/>
+  
+  
   <ListBinding
     Name="LOV_Position"
     ListVOName="AppModule_RankLov1_1"
     NullValueFlag="none"
     MRUCount="0">
+    <?audit suppress oracle.jbo.view.lov-source-need-key-attr?>
     <AttrArray Name="AttrNames">
       <Item Value="Position"/>
     </AttrArray>
@@ -147,35 +142,39 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT LoanRequestEO.ID,                       
-       LoanRequestEO.LOANER,                       
-       POLICE_PERSON.NAMENP,                    
-       POLICE_PERSON.FATHER_NAME,                    
-        POLICE_PERSON.GRAND_FATHER_NAME,                
-        POLICE_PERSON.ADDRESS,             
-         POLICE_PERSON.ACCOUNTNO,        
-         POLICE_PERSON.MOBILENO,    
-         POLICE_PERSON.EMAIL,   
-        POLICE_PERSON.MOJ,              
-         POLICE_PERSON.MOR,             
-       POLICE_PERSON.CODE,                       
-       POLICE_PERSON.POSITION,                       
-       POLICE_PERSON.CURRENT_UNIT,                       
-       LoanRequestEO.NP_DATE,                       
-       LoanRequestEO.EN_DATE,                       
-       LoanRequestEO.PRINCIPAL,                       
-       LoanRequestEO.RATE,                       
-       LoanRequestEO.STATUS,                       
-       LoanRequestEO.REMARKS,                       
-       LoanRequestEO.APROVEDBY,                       
-       POLICE_PERSON1.NAMENP AS NAMENP1,                       
-       POLICE_PERSON1.CODE AS CODE1,                       
-       POLICE_PERSON1.POSITION AS POSITION1,                       
-       POLICE_PERSON1.CURRENT_UNIT AS CURRENT_UNIT1,                       
-       LoanRequestEO.CREATEDBY,                       
-       LoanRequestEO.CREATEDON                      
-FROM  LOANREQUEST LoanRequestEO, POLICE_PERSON POLICE_PERSON, POLICE_PERSON POLICE_PERSON1                      
-WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.LOANER = POLICE_PERSON1.CODE(+))                     
+  <SQLQuery><![CDATA[SELECT LoanRequestEO.ID,          
+       LoanRequestEO.LOANER,          
+       POLICE_PERSON.NAMENP,          
+       POLICE_PERSON.FATHER_NAME,          
+       POLICE_PERSON.GRAND_FATHER_NAME,          
+       POLICE_PERSON.ADDRESS,          
+       POLICE_PERSON.ACCOUNTNO,          
+       POLICE_PERSON.MOBILENO,          
+       POLICE_PERSON.EMAIL,          
+       POLICE_PERSON.MOJ,          
+       POLICE_PERSON.MOR,          
+       POLICE_PERSON.CODE,          
+       POLICE_PERSON.POSITION,          
+       POLICE_PERSON.CURRENT_UNIT,          
+       LoanRequestEO.NP_DATE,          
+       LoanRequestEO.EN_DATE,          
+       LoanRequestEO.PRINCIPAL,          
+       LoanRequestEO.RATE,          
+       LoanRequestEO.STATUS,          
+       LoanRequestEO.REMARKS,          
+       LoanRequestEO.APROVEDBY,          
+       POLICE_PERSON1.NAMENP AS NAMENP1,          
+       POLICE_PERSON1.CODE AS CODE1,          
+       POLICE_PERSON1.POSITION AS POSITION1,          
+       POLICE_PERSON1.CURRENT_UNIT AS CURRENT_UNIT1,          
+       LoanRequestEO.RELATION,          
+       LoanRequestEO.LANDOWNER_NAME,          
+       LoanRequestEO.ADDRESS_OF_LAND,          
+       LoanRequestEO.LOCALBODY,          
+     LoanRequestEO.CREATEDBY,                          
+       LoanRequestEO.CREATEDON                         
+FROM  LOANREQUEST LoanRequestEO, POLICE_PERSON POLICE_PERSON, POLICE_PERSON POLICE_PERSON1                         
+WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.LOANER = POLICE_PERSON1.CODE(+))                        
 and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
   <EntityUsage
     Name="LoanRequestEO"
@@ -549,6 +548,34 @@ and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="Relation"
+    PrecisionRule="true"
+    AliasName="RELATION"
+    EntityAttrName="Relation"
+    EntityUsage="LoanRequestEO"/>
+  <ViewAttribute
+    Name="LandownerName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LandownerName"
+    EntityUsage="LoanRequestEO"
+    AliasName="LANDOWNER_NAME"/>
+  <ViewAttribute
+    Name="AddressOfLand"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AddressOfLand"
+    EntityUsage="LoanRequestEO"
+    AliasName="ADDRESS_OF_LAND"/>
+  <ViewAttribute
+    Name="Localbody"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Localbody"
+    EntityUsage="LoanRequestEO"
+    AliasName="LOCALBODY"/>
+  
+  <ViewAttribute
     Name="Createdby"
     IsUpdateable="false"
     PrecisionRule="true"
@@ -577,6 +604,7 @@ and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  
   <ViewAttribute
     Name="Status2"
     IsUpdateable="false"
@@ -623,16 +651,7 @@ and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
     </Properties>
     <ViewCriteriaRow
       Name="LoanRequestVOCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="Createdby"
-        ViewAttribute="Createdby"
-        Operator="="
-        Conjunction="AND"
-        Value=":cby"
-        IsBindVarValue="true"
-        Required="Optional"/>
-    </ViewCriteriaRow>
+      UpperColumns="1"/>
   </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="Id"/>

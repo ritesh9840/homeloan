@@ -2,6 +2,8 @@ package Loan.Loanmodel.vo;
 
 import java.math.BigDecimal;
 
+import java.math.BigInteger;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.domain.DBSequence;
@@ -46,6 +48,10 @@ public class LoanRequestVORowImpl extends ViewRowImpl {
         Code1,
         Position1,
         CurrentUnit1,
+        Relation,
+        LandownerName,
+        AddressOfLand,
+        Localbody,
         Createdby,
         Createdon,
         Status2,
@@ -54,9 +60,7 @@ public class LoanRequestVORowImpl extends ViewRowImpl {
         AppModule_PolicePersonLov1_2,
         PolicePersonLov1,
         ApprovalStatusLOV1,
-        PolicePersonLov2,
-        RelationView1,
-        Relation1;
+        PolicePersonLov2;
         private static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -107,6 +111,10 @@ public class LoanRequestVORowImpl extends ViewRowImpl {
     public static final int CODE1 = AttributesEnum.Code1.index();
     public static final int POSITION1 = AttributesEnum.Position1.index();
     public static final int CURRENTUNIT1 = AttributesEnum.CurrentUnit1.index();
+    public static final int RELATION = AttributesEnum.Relation.index();
+    public static final int LANDOWNERNAME = AttributesEnum.LandownerName.index();
+    public static final int ADDRESSOFLAND = AttributesEnum.AddressOfLand.index();
+    public static final int LOCALBODY = AttributesEnum.Localbody.index();
     public static final int CREATEDBY = AttributesEnum.Createdby.index();
     public static final int CREATEDON = AttributesEnum.Createdon.index();
     public static final int STATUS2 = AttributesEnum.Status2.index();
@@ -116,8 +124,6 @@ public class LoanRequestVORowImpl extends ViewRowImpl {
     public static final int POLICEPERSONLOV1 = AttributesEnum.PolicePersonLov1.index();
     public static final int APPROVALSTATUSLOV1 = AttributesEnum.ApprovalStatusLOV1.index();
     public static final int POLICEPERSONLOV2 = AttributesEnum.PolicePersonLov2.index();
-    public static final int RELATIONVIEW1 = AttributesEnum.RelationView1.index();
-    public static final int RELATION1 = AttributesEnum.Relation1.index();
 
     /**
      * This is the default constructor (do not remove).

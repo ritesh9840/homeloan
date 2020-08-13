@@ -212,5 +212,15 @@
     <methodAction id="refereshmv" RequiresUpdateModel="true" Action="invokeMethod" MethodName="refereshmv"
                   IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="bindings.refereshmv.dataControl.dataProvider"/>
+    <attributeValues IterBinding="LoanRequestVO1Iterator" id="LandownerName">
+      <AttrNames>
+        <Item Value="LandownerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanRequestVO1Iterator" id="AddressOfLand">
+      <AttrNames>
+        <Item Value="AddressOfLand"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

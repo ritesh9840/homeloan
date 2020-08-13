@@ -63,8 +63,8 @@ public class LoanRequestEOImpl extends EntityImpl {
         Createdon,
         LandownerName,
         AddressOfLand,
-        Relationship,
-        LocalBodyName,
+        Localbody,
+        Relation,
         PersonEO,
         POLICE_PERSON,
         POLICE_PERSON1,
@@ -106,8 +106,8 @@ public class LoanRequestEOImpl extends EntityImpl {
     public static final int CREATEDON = AttributesEnum.Createdon.index();
     public static final int LANDOWNERNAME = AttributesEnum.LandownerName.index();
     public static final int ADDRESSOFLAND = AttributesEnum.AddressOfLand.index();
-    public static final int RELATIONSHIP = AttributesEnum.Relationship.index();
-    public static final int LOCALBODYNAME = AttributesEnum.LocalBodyName.index();
+    public static final int LOCALBODY = AttributesEnum.Localbody.index();
+    public static final int RELATION = AttributesEnum.Relation.index();
     public static final int PERSONEO = AttributesEnum.PersonEO.index();
     public static final int POLICE_PERSON = AttributesEnum.POLICE_PERSON.index();
     public static final int POLICE_PERSON1 = AttributesEnum.POLICE_PERSON1.index();
@@ -321,36 +321,38 @@ public class LoanRequestEOImpl extends EntityImpl {
         setAttributeInternal(ADDRESSOFLAND, value);
     }
 
+
     /**
-     * Gets the attribute value for Relationship, using the alias name Relationship.
-     * @return the value of Relationship
+     * Gets the attribute value for Localbody, using the alias name Localbody.
+     * @return the value of Localbody
      */
-    public BigDecimal getRelationship() {
-        return (BigDecimal) getAttributeInternal(RELATIONSHIP);
+    public String getLocalbody() {
+        return (String) getAttributeInternal(LOCALBODY);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for Relationship.
-     * @param value value to set the Relationship
+     * Sets <code>value</code> as the attribute value for Localbody.
+     * @param value value to set the Localbody
      */
-    public void setRelationship(BigDecimal value) {
-        setAttributeInternal(RELATIONSHIP, value);
+    public void setLocalbody(String value) {
+        setAttributeInternal(LOCALBODY, value);
+    }
+
+
+    /**
+     * Gets the attribute value for Relation, using the alias name Relation.
+     * @return the value of Relation
+     */
+    public Integer getRelation() {
+        return (Integer) getAttributeInternal(RELATION);
     }
 
     /**
-     * Gets the attribute value for LocalBodyName, using the alias name LocalBodyName.
-     * @return the value of LocalBodyName
+     * Sets <code>value</code> as the attribute value for Relation.
+     * @param value value to set the Relation
      */
-    public String getLocalBodyName() {
-        return (String) getAttributeInternal(LOCALBODYNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for LocalBodyName.
-     * @param value value to set the LocalBodyName
-     */
-    public void setLocalBodyName(String value) {
-        setAttributeInternal(LOCALBODYNAME, value);
+    public void setRelation(Integer value) {
+        setAttributeInternal(RELATION, value);
     }
 
     /**

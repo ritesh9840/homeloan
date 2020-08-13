@@ -48,5 +48,119 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="LoanRequestVO1Iterator" id="LoanRequestVO11">
+      <nodeDefinition DefName="Loan.Loanmodel.vo.LoanRequestVO" Name="LoanRequestVO110">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Loaner"/>
+          <Item Value="Namenp"/>
+          <Item Value="FatherName"/>
+          <Item Value="GrandFatherName"/>
+          <Item Value="Address"/>
+          <Item Value="Accountno"/>
+          <Item Value="Mobileno"/>
+          <Item Value="Email"/>
+          <Item Value="Moj"/>
+          <Item Value="Mor"/>
+          <Item Value="Code"/>
+          <Item Value="Position"/>
+          <Item Value="CurrentUnit"/>
+          <Item Value="NpDate"/>
+          <Item Value="EnDate"/>
+          <Item Value="Principal"/>
+          <Item Value="Rate"/>
+          <Item Value="Status"/>
+          <Item Value="Remarks"/>
+          <Item Value="Aprovedby"/>
+          <Item Value="Namenp1"/>
+          <Item Value="Code1"/>
+          <Item Value="Position1"/>
+          <Item Value="CurrentUnit1"/>
+          <Item Value="Createdby"/>
+          <Item Value="Createdon"/>
+          <Item Value="LandownerName"/>
+          <Item Value="AddressOfLand"/>
+          <Item Value="Relation"/>
+          <Item Value="Localbody"/>
+          <Item Value="Status2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LoanRequestVO1Iterator" id="LoanRequestVO12">
+      <nodeDefinition DefName="Loan.Loanmodel.vo.LoanRequestVO" Name="LoanRequestVO120">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Loaner"/>
+          <Item Value="Namenp"/>
+          <Item Value="FatherName"/>
+          <Item Value="GrandFatherName"/>
+          <Item Value="Address"/>
+          <Item Value="Accountno"/>
+          <Item Value="Mobileno"/>
+          <Item Value="Email"/>
+          <Item Value="Moj"/>
+          <Item Value="Mor"/>
+          <Item Value="Code"/>
+          <Item Value="Position"/>
+          <Item Value="CurrentUnit"/>
+          <Item Value="NpDate"/>
+          <Item Value="EnDate"/>
+          <Item Value="Principal"/>
+          <Item Value="Rate"/>
+          <Item Value="Status"/>
+          <Item Value="Remarks"/>
+          <Item Value="Aprovedby"/>
+          <Item Value="Namenp1"/>
+          <Item Value="Code1"/>
+          <Item Value="Position1"/>
+          <Item Value="CurrentUnit1"/>
+          <Item Value="Createdby"/>
+          <Item Value="Createdon"/>
+          <Item Value="LandownerName"/>
+          <Item Value="AddressOfLand"/>
+          <Item Value="Relation"/>
+          <Item Value="Localbody"/>
+          <Item Value="Status2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LoanRequestVO1Iterator" id="LoanRequestVO13">
+      <nodeDefinition DefName="Loan.Loanmodel.vo.LoanRequestVO" Name="LoanRequestVO130">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Loaner"/>
+          <Item Value="Namenp"/>
+          <Item Value="FatherName"/>
+          <Item Value="GrandFatherName"/>
+          <Item Value="Address"/>
+          <Item Value="Accountno"/>
+          <Item Value="Mobileno"/>
+          <Item Value="Email"/>
+          <Item Value="Moj"/>
+          <Item Value="Mor"/>
+          <Item Value="Code"/>
+          <Item Value="Position"/>
+          <Item Value="CurrentUnit"/>
+          <Item Value="NpDate"/>
+          <Item Value="EnDate"/>
+          <Item Value="Principal"/>
+          <Item Value="Rate"/>
+          <Item Value="Status"/>
+          <Item Value="Remarks"/>
+          <Item Value="Aprovedby"/>
+          <Item Value="Namenp1"/>
+          <Item Value="Code1"/>
+          <Item Value="Position1"/>
+          <Item Value="CurrentUnit1"/>
+          <Item Value="Createdby"/>
+          <Item Value="Createdon"/>
+          <Item Value="LandownerName"/>
+          <Item Value="AddressOfLand"/>
+          <Item Value="Relation"/>
+          <Item Value="Localbody"/>
+          <Item Value="Status2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

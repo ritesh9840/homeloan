@@ -4,7 +4,7 @@
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="fk_LoanRequestEO2Assoc"
-  Version="12.2.1.11.3"
+  Version="12.2.1.9.14"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
@@ -18,7 +18,6 @@
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="POLICE_PERSON2"/>
-      <Attr Name="_foreignKey" Value="Loan.Loanmodel.eo.POLICE_PERSON.PolicePersonPrimaryKey"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="Loan.Loanmodel.eo.POLICE_PERSON.Code"/>
@@ -32,7 +31,6 @@
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="LoanRequestEO"/>
-      <Attr Name="_foreignKey" Value="Loan.Loanmodel.eo.LoanRequestEO.fk_LoanRequestEO2"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="Loan.Loanmodel.eo.LoanRequestEO.Aprovedby"/>
