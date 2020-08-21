@@ -164,36 +164,36 @@
                                         <f:validator binding="#{bindings.Rate.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.LandownerName.inputValue}"
-                                                  label="#{bindings.LandownerName.hints.label}"
-                                                  required="#{bindings.LandownerName.hints.mandatory}"
-                                                  columns="#{bindings.LandownerName.hints.displayWidth}"
-                                                  maximumLength="#{bindings.LandownerName.hints.precision}"
-                                                  shortDesc="#{bindings.LandownerName.hints.tooltip}" id="it18">
-                                        <f:validator binding="#{bindings.LandownerName.validator}"/>
+                                    <af:inputText value="#{bindings.LandownerName1.inputValue}"
+                                                  label="#{bindings.LandownerName1.hints.label}"
+                                                  required="#{bindings.LandownerName1.hints.mandatory}"
+                                                  columns="#{bindings.LandownerName1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.LandownerName1.hints.precision}"
+                                                  shortDesc="#{bindings.LandownerName1.hints.tooltip}" id="it34">
+                                        <f:validator binding="#{bindings.LandownerName1.validator}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.AddressOfLand.inputValue}"
-                                                  label="#{bindings.AddressOfLand.hints.label}"
-                                                  required="#{bindings.AddressOfLand.hints.mandatory}"
-                                                  columns="#{bindings.AddressOfLand.hints.displayWidth}"
-                                                  maximumLength="#{bindings.AddressOfLand.hints.precision}"
-                                                  shortDesc="#{bindings.AddressOfLand.hints.tooltip}" id="it27">
-                                        <f:validator binding="#{bindings.AddressOfLand.validator}"/>
+                                    <af:inputText value="#{bindings.AddressOfLand1.inputValue}"
+                                                  label="#{bindings.AddressOfLand1.hints.label}"
+                                                  required="#{bindings.AddressOfLand1.hints.mandatory}"
+                                                  columns="#{bindings.AddressOfLand1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.AddressOfLand1.hints.precision}"
+                                                  shortDesc="#{bindings.AddressOfLand1.hints.tooltip}" id="it18">
+                                        <f:validator binding="#{bindings.AddressOfLand1.validator}"/>
                                     </af:inputText>
-                                    <af:selectOneChoice value="#{bindings.Relation.inputValue}"
-                                                        label="#{bindings.Relation.label}"
-                                                        required="#{bindings.Relation.hints.mandatory}"
-                                                        shortDesc="#{bindings.Relation.hints.tooltip}" id="soc2">
-                                        <f:selectItems value="#{bindings.Relation.items}" id="si2"/>
-                                        <f:validator binding="#{bindings.Relation.validator}"/>
+                                    <af:selectOneChoice value="#{bindings.Relation1.inputValue}"
+                                                        label="#{bindings.Relation1.label}"
+                                                        required="#{bindings.Relation1.hints.mandatory}"
+                                                        shortDesc="#{bindings.Relation1.hints.tooltip}" id="soc2">
+                                        <f:selectItems value="#{bindings.Relation1.items}" id="si2"/>
+                                        <f:validator binding="#{bindings.Relation1.validator}"/>
                                     </af:selectOneChoice>
-                                    <af:inputText value="#{bindings.Localbody.inputValue}"
-                                                  label="#{bindings.Localbody.hints.label}"
-                                                  required="#{bindings.Localbody.hints.mandatory}"
-                                                  columns="#{bindings.Localbody.hints.displayWidth}"
-                                                  maximumLength="#{bindings.Localbody.hints.precision}"
-                                                  shortDesc="#{bindings.Localbody.hints.tooltip}" id="it32">
-                                        <f:validator binding="#{bindings.Localbody.validator}"/>
+                                    <af:inputText value="#{bindings.Localbody1.inputValue}"
+                                                  label="#{bindings.Localbody1.hints.label}"
+                                                  required="#{bindings.Localbody1.hints.mandatory}"
+                                                  columns="#{bindings.Localbody1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Localbody1.hints.precision}"
+                                                  shortDesc="#{bindings.Localbody1.hints.tooltip}" id="it27">
+                                        <f:validator binding="#{bindings.Localbody1.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.Remarks.inputValue}"
                                                   label="#{bindings.Remarks.hints.label}"

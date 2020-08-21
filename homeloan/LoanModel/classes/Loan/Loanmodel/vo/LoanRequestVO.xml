@@ -573,8 +573,7 @@ and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
     AliasName="RELATION"
     EntityAttrName="Relation"
     EntityUsage="LoanRequestEO"
-    LOVName="LOV_Relation"
-    IsUpdateable="false">
+    LOVName="LOV_Relation">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -588,24 +587,21 @@ and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="LandownerName"
     EntityUsage="LoanRequestEO"
-    AliasName="LANDOWNER_NAME"
-    IsUpdateable="false"/>
+    AliasName="LANDOWNER_NAME"/>
   <ViewAttribute
     Name="AddressOfLand"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="AddressOfLand"
     EntityUsage="LoanRequestEO"
-    AliasName="ADDRESS_OF_LAND"
-    IsUpdateable="false"/>
+    AliasName="ADDRESS_OF_LAND"/>
   <ViewAttribute
     Name="Localbody"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Localbody"
     EntityUsage="LoanRequestEO"
-    AliasName="LOCALBODY"
-    IsUpdateable="false"/>
+    AliasName="LOCALBODY"/>
   
   <ViewAttribute
     Name="Createdby"

@@ -63,6 +63,10 @@
     Name="RelationView1"
     ViewObjectName="Loan.Loanmodel.vo.RelationView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Relation1"
+    ViewObjectName="Loan.Loanmodel.vo.Relation"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Loaner"
     ListVOName="PolicePersonLov2"
@@ -172,6 +176,23 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Orgname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Relation"
+    ListVOName="Relation1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Relation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -452,7 +473,8 @@ WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.APROVEDB
     PrecisionRule="true"
     EntityAttrName="NpDate"
     EntityUsage="LoanRequestEO"
-    AliasName="NP_DATE">
+    AliasName="NP_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -465,7 +487,8 @@ WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.APROVEDB
     PrecisionRule="true"
     EntityAttrName="EnDate"
     EntityUsage="LoanRequestEO"
-    AliasName="EN_DATE">
+    AliasName="EN_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -478,7 +501,8 @@ WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.APROVEDB
     PrecisionRule="true"
     EntityAttrName="Principal"
     EntityUsage="LoanRequestEO"
-    AliasName="PRINCIPAL">
+    AliasName="PRINCIPAL"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -491,7 +515,8 @@ WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.APROVEDB
     PrecisionRule="true"
     EntityAttrName="Rate"
     EntityUsage="LoanRequestEO"
-    AliasName="RATE">
+    AliasName="RATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -534,7 +559,8 @@ WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.APROVEDB
     PrecisionRule="true"
     EntityAttrName="Aprovedby"
     EntityUsage="LoanRequestEO"
-    AliasName="APROVEDBY">
+    AliasName="APROVEDBY"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -657,7 +683,15 @@ WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.APROVEDB
     EntityAttrName="Relation"
     EntityUsage="LoanRequestEO"
     AliasName="RELATION"
-    IsUpdateable="false"/>
+    IsUpdateable="false"
+    LOVName="LOV_Relation">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LandownerName"
     PrecisionRule="true"

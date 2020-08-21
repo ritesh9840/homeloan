@@ -78,7 +78,8 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         UserLov1,
         ApprovalStatusLOV3,
         ShowUserLov1,
-        RelationView1;
+        RelationView1,
+        Relation1;
         private static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -150,6 +151,7 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
     public static final int APPROVALSTATUSLOV3 = AttributesEnum.ApprovalStatusLOV3.index();
     public static final int SHOWUSERLOV1 = AttributesEnum.ShowUserLov1.index();
     public static final int RELATIONVIEW1 = AttributesEnum.RelationView1.index();
+    public static final int RELATION1 = AttributesEnum.Relation1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -360,13 +362,6 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         return (String) getAttributeInternal(NPDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for NP_DATE using the alias name NpDate.
-     * @param value value to set the NP_DATE
-     */
-    public void setNpDate(String value) {
-        setAttributeInternal(NPDATE, value);
-    }
 
     /**
      * Gets the attribute value for EN_DATE using the alias name EnDate.
@@ -376,13 +371,6 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         return (Timestamp) getAttributeInternal(ENDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for EN_DATE using the alias name EnDate.
-     * @param value value to set the EN_DATE
-     */
-    public void setEnDate(Timestamp value) {
-        setAttributeInternal(ENDATE, value);
-    }
 
     /**
      * Gets the attribute value for PRINCIPAL using the alias name Principal.
@@ -392,13 +380,6 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         return (Integer) getAttributeInternal(PRINCIPAL);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for PRINCIPAL using the alias name Principal.
-     * @param value value to set the PRINCIPAL
-     */
-    public void setPrincipal(Integer value) {
-        setAttributeInternal(PRINCIPAL, value);
-    }
 
     /**
      * Gets the attribute value for RATE using the alias name Rate.
@@ -408,13 +389,6 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         return (BigDecimal) getAttributeInternal(RATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for RATE using the alias name Rate.
-     * @param value value to set the RATE
-     */
-    public void setRate(BigDecimal value) {
-        setAttributeInternal(RATE, value);
-    }
 
     /**
      * Gets the attribute value for REMARKS using the alias name Remarks.
@@ -457,15 +431,6 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
         
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for APROVEDBY using the alias name Aprovedby.
-     * @param value value to set the APROVEDBY
-     */
-    public void setAprovedby(String value) {
-        setAttributeInternal(APROVEDBY, value);
-       
-       
-    }
 
     /**
      * Gets the attribute value for the calculated attribute Name1.
@@ -659,6 +624,13 @@ public class LoanApprovalVORowImpl extends ViewRowImpl implements LoanApprovalVO
      */
     public RowSet getRelationView1() {
         return (RowSet) getAttributeInternal(RELATIONVIEW1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> Relation1.
+     */
+    public RowSet getRelation1() {
+        return (RowSet) getAttributeInternal(RELATION1);
     }
 }
 

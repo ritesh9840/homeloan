@@ -47,19 +47,15 @@ public interface LoanApprovalVORow extends Row {
 
     String getNpDate();
 
-    void setNpDate(String value);
 
     Timestamp getEnDate();
 
-    void setEnDate(Timestamp value);
 
     Integer getPrincipal();
 
-    void setPrincipal(Integer value);
 
     BigDecimal getRate();
 
-    void setRate(BigDecimal value);
 
     String getRemarks();
 
@@ -71,7 +67,6 @@ public interface LoanApprovalVORow extends Row {
 
     String getAprovedby();
 
-    void setAprovedby(String value);
 
     String getName1();
 

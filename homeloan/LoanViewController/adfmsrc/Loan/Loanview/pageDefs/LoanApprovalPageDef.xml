@@ -252,5 +252,22 @@
         <Item Value="Localbody"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="LandownerName1">
+      <AttrNames>
+        <Item Value="LandownerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="AddressOfLand1">
+      <AttrNames>
+        <Item Value="AddressOfLand"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Localbody1">
+      <AttrNames>
+        <Item Value="Localbody"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LoanApprovalVO1Iterator" StaticList="false" Uses="LOV_Relation" id="Relation1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
