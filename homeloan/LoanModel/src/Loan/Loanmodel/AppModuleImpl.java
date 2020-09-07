@@ -174,33 +174,34 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
 
 
-    public int loanInsert(int pcode) {
-        CallableStatement cs = null;
-        try {
-            cs = getDBTransaction().createCallableStatement("begin ? := LOANINSERT(?); end;", 0);
-            cs.registerOutParameter(1, Types.INTEGER);
+    public int loanInsert(int pcode, String landownernane, String addressofland, String relation, String localbody) {
+           CallableStatement cs = null;
+           try {
+               cs = getDBTransaction().createCallableStatement("begin ? := LOANINSERT(?,?,?,?,?); end;", 0);
+               cs.registerOutParameter(1, Types.INTEGER);
+               cs.setInt(2, pcode);
+               cs.setString(3, landownernane);
+               cs.setString(4, addressofland);
+               cs.setString(5, relation);
+               cs.setString(6, localbody);
+               cs.executeUpdate();
+               return cs.getInt(1);
+           }
 
+           catch (Exception e) {
+               e.printStackTrace();
 
-            cs.setInt(2, pcode);
-            cs.executeUpdate();
-            return cs.getInt(1);
-        }
+               return 0;
+           }
 
-        catch (Exception e) {
-            e.printStackTrace();
-
-            return 0;
-        }
-
-        finally {
-            try {
-                cs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
+           finally {
+               try {
+                   cs.close();
+               } catch (SQLException e) {
+                   e.printStackTrace();
+               }
+           }
+       }
 
 
 

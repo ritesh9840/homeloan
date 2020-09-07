@@ -355,7 +355,7 @@ private RichInputComboboxListOfValues status;
            else
             {
             
-            int i=loanInsert(c_code);
+                int i=loanInsert(c_code, landownernane.getValue().toString(), addressofland.getValue().toString(), relation.getValue().toString(),localbody.getValue().toString());
             if(i==1)
             {
                 
@@ -455,17 +455,21 @@ private RichInputComboboxListOfValues status;
     
     
     
-    int loanInsert(int pcode) {
-        BindingContext bctx = BindingContext.getCurrent();
+    int loanInsert(int pcode, String landownernane,String addressofland, String relation,String localbody) {
+           BindingContext bctx = BindingContext.getCurrent();
 
-        DCBindingContainer bc = (DCBindingContainer) bctx.getCurrentBindingsEntry();
-        oracle.adf.model.OperationBinding ob = (oracle.adf.model.OperationBinding) bc.getOperationBinding("loanInsert");
-        Map m = ob.getParamsMap();
-        m.put("pcode", pcode);
-       
-        Object obj = ob.execute();
-        return (Integer) obj;
-    }
+           DCBindingContainer bc = (DCBindingContainer) bctx.getCurrentBindingsEntry();
+           oracle.adf.model.OperationBinding ob = (oracle.adf.model.OperationBinding) bc.getOperationBinding("loanInsert");
+           Map m = ob.getParamsMap();
+           m.put("pcode", pcode);
+           m.put("landownernane", landownernane);
+           m.put("addressofland", addressofland);
+           m.put("relation", relation);
+           m.put("localbody",localbody);
+          
+           Object obj = ob.execute();
+           return (Integer) obj;
+       }
     
     // Function to referesh Matriazlized view to sync with PMIS.
     void refereshmv() {

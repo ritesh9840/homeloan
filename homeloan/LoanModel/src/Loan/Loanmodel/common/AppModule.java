@@ -21,7 +21,8 @@ public interface AppModule extends ApplicationModule {
 
     int getRequestLoanAmount(String code);
 
-    int loanInsert(int pcode);
+     int loanInsert(int pcode, String landownernane, String addressofland, String relation, String localbody);
+    
 
     float getInstallmentAmount(int pcode);
 
