@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.3" id="LoanApprovalPageDef"
+                Package="Loan.Loanview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LoanApprovalVO1" RangeSize="25" DataControl="AppModuleDataControl" id="LoanApprovalVO1Iterator"/>
+    <searchRegion Binds="LoanApprovalVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LoanApprovalVO1Query"/>
+    <iterator Binds="LoanRequestVO1" RangeSize="25" DataControl="AppModuleDataControl" id="LoanRequestVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Loaner">
+      <AttrNames>
+        <Item Value="Loaner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Position">
+      <AttrNames>
+        <Item Value="Position"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="LoanApprovalVO1Iterator" id="CreateInsert" InstanceName="AppModuleDataControl.LoanApprovalVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="LoanApprovalVO1Iterator" id="Delete" InstanceName="AppModuleDataControl.LoanApprovalVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="getEnglishDate" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getEnglishDate"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getEnglishDate.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getEnglishDate_getEnglishDate_dataControl_dataProvider_getEnglishDate_result">
+      <NamedData NDName="nepaliDate" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getLoanAmount" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getLoanAmount"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getLoanAmount.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getLoanAmount_getLoanAmount_dataControl_dataProvider_getLoanAmount_result">
+      <NamedData NDName="pcode" NDType="int"/>
+      <NamedData NDName="date" NDType="java.util.Date"/>
+    </methodAction>
+    <methodAction id="getNameOfCode" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getNameOfCode"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getNameOfCode.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getNameOfCode_getNameOfCode_dataControl_dataProvider_getNameOfCode_result">
+      <NamedData NDName="TableName" NDType="java.lang.String"/>
+      <NamedData NDName="CompareFieldName" NDType="java.lang.String"/>
+      <NamedData NDName="ReturnFieldName" NDType="java.lang.String"/>
+      <NamedData NDName="CompareValue" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getNepaliDate" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getNepaliDate"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getNepaliDate.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getNepaliDate_getNepaliDate_dataControl_dataProvider_getNepaliDate_result">
+      <NamedData NDName="date" NDType="java.util.Date"/>
+    </methodAction>
+    <methodAction id="getRequestLoanAmount" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getRequestLoanAmount" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getRequestLoanAmount.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getRequestLoanAmount_getRequestLoanAmount_dataControl_dataProvider_getRequestLoanAmount_result">
+      <NamedData NDName="code" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getServicePeriod" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getServicePeriod"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getServicePeriod.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getServicePeriod_getServicePeriod_dataControl_dataProvider_getServicePeriod_result">
+      <NamedData NDName="pcode" NDType="int"/>
+    </methodAction>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <listOfValues IterBinding="LoanApprovalVO1Iterator" StaticList="false" Uses="LOV_Loaner" id="Loaner1"/>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Namenp">
+      <AttrNames>
+        <Item Value="Namenp"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LoanApprovalVO1Iterator" StaticList="false" Uses="LOV_Position" id="Position1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Positionen">
+      <AttrNames>
+        <Item Value="Positionen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="CurrentUnit">
+      <AttrNames>
+        <Item Value="CurrentUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Moj">
+      <AttrNames>
+        <Item Value="Moj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Mor">
+      <AttrNames>
+        <Item Value="Mor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="NpDate">
+      <AttrNames>
+        <Item Value="NpDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="EnDate">
+      <AttrNames>
+        <Item Value="EnDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Principal">
+      <AttrNames>
+        <Item Value="Principal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Rate">
+      <AttrNames>
+        <Item Value="Rate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LoanApprovalVO1Iterator" StaticList="false" Uses="LOV_Status" id="Status1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Aprovedby">
+      <AttrNames>
+        <Item Value="Aprovedby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Name1">
+      <AttrNames>
+        <Item Value="Name1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Position11">
+      <AttrNames>
+        <Item Value="Position1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="CurrentUnit1">
+      <AttrNames>
+        <Item Value="CurrentUnit1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Createdby">
+      <AttrNames>
+        <Item Value="Createdby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Createdon">
+      <AttrNames>
+        <Item Value="Createdon"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="LoanApprovalVO1Iterator" StaticList="false" Uses="LOV_Status" id="Status2"/>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="FatherName">
+      <AttrNames>
+        <Item Value="FatherName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="GrandFatherName">
+      <AttrNames>
+        <Item Value="GrandFatherName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Namenp1">
+      <AttrNames>
+        <Item Value="Namenp1"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="loanInsert" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loanInsert"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.loanInsert.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.loanInsert_loanInsert_dataControl_dataProvider_loanInsert_result">
+      <NamedData NDName="pcode" NDType="int"/>
+    </methodAction>
+    <tree IterBinding="LoanApprovalVO1Iterator" id="LoanApprovalVO1">
+      <nodeDefinition DefName="Loan.Loanmodel.vo.LoanApprovalVO" Name="LoanApprovalVO10">
+        <AttrNames>
+          <Item Value="Loaner"/>
+          <Item Value="Name"/>
+          <Item Value="Namenp"/>
+          <Item Value="Position"/>
+          <Item Value="CurrentUnit"/>
+          <Item Value="Moj"/>
+          <Item Value="Mor"/>
+          <Item Value="Principal"/>
+          <Item Value="Rate"/>
+          <Item Value="Status2"/>
+          <Item Value="Createdby"/>
+          <Item Value="NpDate"/>
+          <Item Value="Accountno"/>
+          <Item Value="Mobileno"/>
+          <Item Value="Email"/>
+          <Item Value="showUser"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Accountno">
+      <AttrNames>
+        <Item Value="Accountno"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getInstallmentAmount" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getInstallmentAmount" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getInstallmentAmount.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getInstallmentAmount_getInstallmentAmount_dataControl_dataProvider_getInstallmentAmount_result">
+      <NamedData NDName="pcode" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Mobileno">
+      <AttrNames>
+        <Item Value="Mobileno"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getRowStatusLoanApproval" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getRowStatusLoanApproval" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getRowStatusLoanApproval.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getRowStatusLoanApproval_getRowStatusLoanApproval_dataControl_dataProvider_getRowStatusLoanApproval_result">
+      <NamedData NDName="row" NDType="oracle.jbo.Row" NDValue="#{bindings.LoanApprovalVO1Iterator.currentRow}"/>
+    </methodAction>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="refereshmv" RequiresUpdateModel="true" Action="invokeMethod" MethodName="refereshmv"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.refereshmv.dataControl.dataProvider"/>
+    <attributeValues IterBinding="LoanRequestVO1Iterator" id="LandownerName">
+      <AttrNames>
+        <Item Value="LandownerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanRequestVO1Iterator" id="AddressOfLand">
+      <AttrNames>
+        <Item Value="AddressOfLand"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LoanRequestVO1Iterator" StaticList="false" Uses="LOV_Relation" id="Relation"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="LoanRequestVO1Iterator" id="Localbody">
+      <AttrNames>
+        <Item Value="Localbody"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="LandownerName1">
+      <AttrNames>
+        <Item Value="LandownerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="AddressOfLand1">
+      <AttrNames>
+        <Item Value="AddressOfLand"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LoanApprovalVO1Iterator" id="Localbody1">
+      <AttrNames>
+        <Item Value="Localbody"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LoanApprovalVO1Iterator" StaticList="false" Uses="LOV_Relation" id="Relation1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

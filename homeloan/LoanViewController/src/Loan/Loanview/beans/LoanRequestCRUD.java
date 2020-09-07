@@ -58,6 +58,10 @@ public class LoanRequestCRUD {
 private RichInputComboboxListOfValues status;
     private RichInputText email;
     private RichSelectOneChoice statusDelete;
+    private RichInputText landownernane;
+    private RichInputText addressofland;
+    private RichSelectOneChoice relation;
+    private RichInputText localbody;
 
     public LoanRequestCRUD() {
         super();
@@ -628,5 +632,37 @@ private RichInputComboboxListOfValues status;
         System.out.println("After referesh");
         
        
+    }
+
+    public void setLandownernane(RichInputText landownernane) {
+        this.landownernane = landownernane;
+    }
+
+    public RichInputText getLandownernane() {
+        return landownernane;
+    }
+
+    public void setAddressofland(RichInputText addressofland) {
+        this.addressofland = addressofland;
+    }
+
+    public RichInputText getAddressofland() {
+        return addressofland;
+    }
+
+    public void setRelation(RichSelectOneChoice relation) {
+        this.relation = relation;
+    }
+
+    public RichSelectOneChoice getRelation() {
+        return relation;
+    }
+
+    public void setLocalbody(RichInputText localbody) {
+        this.localbody = localbody;
+    }
+
+    public RichInputText getLocalbody() {
+        return localbody;
     }
 }

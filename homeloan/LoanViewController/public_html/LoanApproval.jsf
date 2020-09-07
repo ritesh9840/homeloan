@@ -169,7 +169,8 @@
                                                   required="#{bindings.LandownerName1.hints.mandatory}"
                                                   columns="#{bindings.LandownerName1.hints.displayWidth}"
                                                   maximumLength="#{bindings.LandownerName1.hints.precision}"
-                                                  shortDesc="#{bindings.LandownerName1.hints.tooltip}" id="it34">
+                                                  shortDesc="#{bindings.LandownerName1.hints.tooltip}" id="it34"
+                                                  binding="#{viewScope.loanRequestCRUD.landownernane}">
                                         <f:validator binding="#{bindings.LandownerName1.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.AddressOfLand1.inputValue}"
@@ -177,13 +178,15 @@
                                                   required="#{bindings.AddressOfLand1.hints.mandatory}"
                                                   columns="#{bindings.AddressOfLand1.hints.displayWidth}"
                                                   maximumLength="#{bindings.AddressOfLand1.hints.precision}"
-                                                  shortDesc="#{bindings.AddressOfLand1.hints.tooltip}" id="it18">
+                                                  shortDesc="#{bindings.AddressOfLand1.hints.tooltip}" id="it18"
+                                                  binding="#{viewScope.loanRequestCRUD.addressofland}">
                                         <f:validator binding="#{bindings.AddressOfLand1.validator}"/>
                                     </af:inputText>
                                     <af:selectOneChoice value="#{bindings.Relation1.inputValue}"
                                                         label="#{bindings.Relation1.label}"
                                                         required="#{bindings.Relation1.hints.mandatory}"
-                                                        shortDesc="#{bindings.Relation1.hints.tooltip}" id="soc2">
+                                                        shortDesc="#{bindings.Relation1.hints.tooltip}" id="soc2"
+                                                        binding="#{viewScope.loanRequestCRUD.relation}">
                                         <f:selectItems value="#{bindings.Relation1.items}" id="si2"/>
                                         <f:validator binding="#{bindings.Relation1.validator}"/>
                                     </af:selectOneChoice>
@@ -192,7 +195,8 @@
                                                   required="#{bindings.Localbody1.hints.mandatory}"
                                                   columns="#{bindings.Localbody1.hints.displayWidth}"
                                                   maximumLength="#{bindings.Localbody1.hints.precision}"
-                                                  shortDesc="#{bindings.Localbody1.hints.tooltip}" id="it27">
+                                                  shortDesc="#{bindings.Localbody1.hints.tooltip}" id="it27"
+                                                  binding="#{viewScope.loanRequestCRUD.localbody}">
                                         <f:validator binding="#{bindings.Localbody1.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.Remarks.inputValue}"

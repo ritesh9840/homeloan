@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PHONEBOOK"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PHONEBOOK"
+  AliasName="PHONEBOOK"
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="Computercode"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="COMPUTERCODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PHONEBOOK"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Accountno"
+    Precision="40"
+    ColumnName="ACCOUNTNO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PHONEBOOK"
+    IsUnique="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="AccountnoRule0"
+      ResId="Loan.Loanmodel.eo.PHONEBOOK.Accountno_Rule_0"
+      OnAttribute="Accountno"
+      Pattern="^[a-zA-Z0-9]+$"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="Mobileno"
+    Precision="40"
+    ColumnName="MOBILENO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PHONEBOOK"
+    IsUnique="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="MobilenoRule0"
+      ResId="Loan.Loanmodel.eo.PHONEBOOK.Mobileno_Rule_0"
+      OnAttribute="Mobileno"
+      Pattern="^[0-9]{10}$"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="Createdby"
+    Precision="40"
+    ColumnName="CREATEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PHONEBOOK"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Createon"
+    ColumnName="CREATEON"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="PHONEBOOK"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="Email"
+    Precision="100"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PHONEBOOK">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.eo.PHONEBOOK.Email_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RegExpValidationBean
+      Name="EmailRule0"
+      ResId="Loan.Loanmodel.eo.PHONEBOOK.Email_Rule_0"
+      OnAttribute="Email"
+      Pattern="^[_A-Za-z0-9-]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})"
+      Inverse="false"/>
+  </Attribute>
+  <AccessorAttribute
+    Name="POLICE_PERSON"
+    Association="Loan.Loanmodel.ao.PersonPhone"
+    AssociationEnd="Loan.Loanmodel.ao.PersonPhone.POLICE_PERSON"
+    AssociationOtherEnd="Loan.Loanmodel.ao.PersonPhone.PHONEBOOK"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PhonebookPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PHONEBOOK_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Loan.Loanmodel.eo.PHONEBOOK.Computercode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PHONEBOOK">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="POLICE_PERSON_PRIMARY_KEY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PHONEBOOK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Loan.Loanmodel.eo.PHONEBOOK.Computercode"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Loan.Loanmodel.LoanModelBundle"/>
+  </ResourceBundle>
+</Entity>
