@@ -77,7 +77,6 @@ private RichInputComboboxListOfValues status;
         
     }
     
-    
     public void okCancelForAddPhoneBookPopup(DialogEvent dialogEvent) {
         // Add event code here...
         
@@ -95,10 +94,7 @@ private RichInputComboboxListOfValues status;
             System.out.println("After referesh");
            
             AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
-            adfFacesContext.getCurrentInstance().addPartialTarget(bndResultTable);
-            
-           
-            
+            adfFacesContext.getCurrentInstance().addPartialTarget(bndResultTable);     
             
         }
         else
@@ -109,15 +105,9 @@ private RichInputComboboxListOfValues status;
             AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
             adfFacesContext.getCurrentInstance().addPartialTarget(bndResultTable);
         }
-        
-        
-        
+                 
     }
     
-    
-    
-    
-
     public void okCancelForAddPopup(DialogEvent dialogEvent) {
         // Add event code here...
         
@@ -139,8 +129,7 @@ private RichInputComboboxListOfValues status;
             AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
             adfFacesContext.getCurrentInstance().addPartialTarget(bndResultTable);
         }
-        
-        
+           
         
     }
 
@@ -158,13 +147,6 @@ private RichInputComboboxListOfValues status;
         
         
         if(DialogEvent.Outcome.ok==dialogEvent.getOutcome().ok){
-           
-           
-            
-           
-            
-           
-          
            
             BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
             OperationBinding opd= bc.getOperationBinding("Delete");
@@ -195,23 +177,11 @@ private RichInputComboboxListOfValues status;
     
    
    
-   
-   
-   
-   
     public void onDeletePopup(DialogEvent dialogEvent) {
         // Add event code here...
-        
-        
+         
         if(DialogEvent.Outcome.ok==dialogEvent.getOutcome().ok){
-           
-           
-            
-           
-            
-           
-          
-           
+             
             BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
             OperationBinding opd= bc.getOperationBinding("Delete");
             opd.execute();  
@@ -235,10 +205,6 @@ private RichInputComboboxListOfValues status;
         
         
     }
-    
-    
-    
-    
     
     
     public void onDeletePopupLoanrequest(DialogEvent dialogEvent) {
@@ -284,16 +250,9 @@ private RichInputComboboxListOfValues status;
             AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
             adfFacesContext.getCurrentInstance().addPartialTarget(bndResultTable);
         }
-        
-        
-        
+             
     }
     
-    
-    
-    
-    
-
 
     public void okCancelForApprovedPopup(DialogEvent dialogEvent) {
         // Add event code here...
@@ -303,14 +262,11 @@ private RichInputComboboxListOfValues status;
         
         if(DialogEvent.Outcome.ok==dialogEvent.getOutcome().ok){
            
-            
-           
-           
-            
                     System.out.println("Loan inside Loan Approval" +  computer_code.getValue());
                     
             float loanAmount=  getLoanAmount(c_code, new Date());
             float w_installment = getInstallmentAmount(c_code);
+            float homeloancredit = getHomeLoanCredit(c_code, new Date());
             
             System.out.println("Loan Amount="+loanAmount);
             
@@ -340,6 +296,21 @@ private RichInputComboboxListOfValues status;
                 
              
             }
+           
+            else  if (homeloancredit > 0) 
+             {
+              fm =  new FacesMessage("You are ineligible to take loan! You have previous Home Loan "+homeloancredit+ "You have to clear your loan first");
+                         //  throw new ValidatorException(fm);
+                        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+                        
+                         FacesContext context = FacesContext.getCurrentInstance();
+                              context.addMessage(null, fm);
+                
+                 
+              
+             }
+           
+           
            
            else if(w_installment>0) {
                
@@ -390,8 +361,7 @@ private RichInputComboboxListOfValues status;
                            FacesContext context = FacesContext.getCurrentInstance();
                                 context.addMessage(null, fm);
             
-            
-            
+        
             }
                 
                 else {
@@ -448,11 +418,17 @@ private RichInputComboboxListOfValues status;
         return (Float) obj;
     }
     
-    
-   
-    
-    
-    
+    float  getHomeLoanCredit(int pcode,java.util.Date date) {
+        BindingContext bctx = BindingContext.getCurrent();
+        DCBindingContainer bc = (DCBindingContainer) bctx.getCurrentBindingsEntry();
+        oracle.adf.model.OperationBinding ob = (oracle.adf.model.OperationBinding) bc.getOperationBinding("getHomeLoanCredit");
+        Map m = ob.getParamsMap();
+        m.put("pcode", pcode);
+        m.put("date", date);
+        Object obj = ob.execute();
+        return (Float) obj;
+    }
+     
     
     
     int loanInsert(int pcode, String landownernane,String addressofland, String relation,String localbody) {

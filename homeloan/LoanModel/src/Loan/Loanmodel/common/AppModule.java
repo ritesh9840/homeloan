@@ -34,5 +34,7 @@ public interface AppModule extends ApplicationModule {
 
     int checkunique(String code);
     void refereshmv();
+
+    float getHomeLoanCredit(int pcode, Date date);
 }
 

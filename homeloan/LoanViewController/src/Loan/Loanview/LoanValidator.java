@@ -50,8 +50,9 @@ public class LoanValidator {
                 System.out.println("Loan inside Loan validatoor" + computer_code);
 
                 float loanAmount = getLoanAmount(computer_code, new Date());
-
+                float homeloancredit = getHomeLoanCredit(computer_code, new Date());
                 float w_installment = getInstallmentAmount(computer_code);
+
 
                 // checking value form email,phone,and account number shuld not be null
 
@@ -112,13 +113,23 @@ public class LoanValidator {
                 }
 
 
+                else if (homeloancredit > 0) {
+                    fm =
+                        new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                         "You are ineligible to take loan! You have previous Home Loan " +
+                                         homeloancredit, " You have to clear your loan first");
+                    throw new ValidatorException(fm);
+                }
+
                 else if (loanAmount > 0) {
                     fm =
                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                          "You are ineligible to take loan! You have previous loan " + loanAmount,
                                          " You have to clear your loan first");
                     throw new ValidatorException(fm);
-                } else if (w_installment > 0) {
+                }
+
+                else if (w_installment > 0) {
                     fm =
                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                          "You are ineligible to take loan! You have previous intallment Loan " +
@@ -231,6 +242,20 @@ public class LoanValidator {
         return (Float) obj;
     }
 
+    // function to check homeloan credit amount
+
+    float getHomeLoanCredit(int pcode, java.util.Date date) {
+        BindingContext bctx = BindingContext.getCurrent();
+        DCBindingContainer bc = (DCBindingContainer) bctx.getCurrentBindingsEntry();
+        oracle.adf.model.OperationBinding ob =
+            (oracle.adf.model.OperationBinding) bc.getOperationBinding("getHomeLoanCredit");
+        Map m = ob.getParamsMap();
+        m.put("pcode", pcode);
+        m.put("date", date);
+        Object obj = ob.execute();
+        return (Float) obj;
+    }
+
 
     // function to check welfre installment amount
 
@@ -288,6 +313,8 @@ public class LoanValidator {
         System.out.println("Loan inside Loan validatoor" + computer_code);
         float loanAmount = getLoanAmount(computer_code, new Date());
         float w_installment = getInstallmentAmount(computer_code);
+        float homeloancredit = this.getHomeLoanCredit(computer_code, new Date());
+
 
         int serviceperiod = getServicePeriod(computer_code);
 
@@ -299,12 +326,12 @@ public class LoanValidator {
 
         int rankorder =
             Integer.parseInt(getNameOfCode("POLICE_PERSON", "CODE", "RANKORDER", String.valueOf(computer_code)));
-        
+
 
         System.out.println("status =" + status);
-        
-        if(rankorder<=7){
-            
+
+        if (rankorder <= 7) {
+
             fm =
                 new FacesMessage("You are senior officer !, you are ineligible to apply Home loan" +
                                  ", You should apply for another types of loan");
@@ -314,12 +341,11 @@ public class LoanValidator {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, fm);
             computerCode.resetValue();
-            
+
         }
-        
 
 
-       else if (status != 0) {
+        else if (status != 0) {
 
 
             fm =
@@ -401,6 +427,20 @@ public class LoanValidator {
 
         }
 
+
+        else if (homeloancredit > 0) {
+           
+            fm =
+                new FacesMessage("You are ineligible to take loan! You have previous Home Loan " + homeloancredit  +
+                                 " You have to clear your loan first");
+            //  throw new ValidatorException(fm);
+            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, fm);
+            computerCode.resetValue();
+           
+        }
 
         else if (loanAmount > 0)
 

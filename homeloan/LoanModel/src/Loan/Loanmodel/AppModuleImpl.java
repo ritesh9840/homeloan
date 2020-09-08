@@ -289,6 +289,35 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             }
         }
     }
+    
+    // function to get HomeLoan Credit Amount to validate.
+    
+    public float getHomeLoanCredit(int pcode,Date date) {
+        CallableStatement cs = null;
+        try {
+            cs = getDBTransaction().createCallableStatement("begin ? := GETHOMELOANCREDIT (?,?); end;", 0);
+            cs.registerOutParameter(1, Types.FLOAT);
+            cs.setInt(2, pcode);
+            cs.setDate(3, new java.sql.Date(date.getTime()));
+            cs.executeUpdate();
+            return cs.getInt(1);
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+
+            return 0;
+        }
+
+        finally {
+            try {
+                cs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
 
 
 // function to get loan amount for welfareinstallment

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LoanRequestVO"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="Loan.Loanmodel.vo.LoanRequestVORowImpl"
+  ComponentClass="Loan.Loanmodel.vo.LoanRequestVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Loan.Loanmodel.vo.LoanRequestVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="loginuser"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression
+      Name="VariableScript"
+      CodeSourceName="LoanRequestVO"/>
+  </Variable>
+  <ViewAccessor
+    Name="AppModule_PolicePersonLov1_1"
+    ViewObjectName="Loan.Loanmodel.vo.PolicePersonLov"
+    AMUsageName="AppModule"
+    ViewInstanceName="PolicePersonLov1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AppModule_RankLov1_1"
+    ViewObjectName="Loan.Loanmodel.vo.RankLov"
+    AMUsageName="AppModule"
+    ViewInstanceName="RankLov1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AppModule_PolicePersonLov1_2"
+    ViewObjectName="Loan.Loanmodel.vo.PolicePersonLov"
+    AMUsageName="AppModule"
+    ViewInstanceName="PolicePersonLov1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PolicePersonLov1"
+    ViewObjectName="Loan.Loanmodel.vo.PolicePersonLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ApprovalStatusLOV1"
+    ViewObjectName="Loan.Loanmodel.vo.ApprovalStatusLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PolicePersonLov2"
+    ViewObjectName="Loan.Loanmodel.vo.PolicePersonLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Relation1"
+    ViewObjectName="Loan.Loanmodel.vo.Relation"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Position"
+    ListVOName="AppModule_RankLov1_1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <?audit suppress oracle.jbo.view.lov-source-need-key-attr?>
+    <AttrArray Name="AttrNames">
+      <Item Value="Position"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Rnk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Rnk"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Loaner"
+    ListVOName="PolicePersonLov1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="Loaner"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Code"/>
+      <Item Value="CurrentUnit"/>
+      <Item Value="Name"/>
+      <Item Value="Namenp"/>
+      <Item Value="Position"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Status"
+    ListVOName="ApprovalStatusLOV1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Status"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Aprovedby"
+    ListVOName="PolicePersonLov1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Aprovedby"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Code"/>
+      <Item Value="CurrentUnit"/>
+      <Item Value="Name"/>
+      <Item Value="Namenp"/>
+      <Item Value="Position"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Relation"
+    ListVOName="Relation1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Relation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT LoanRequestEO.ID,          
+       LoanRequestEO.LOANER,          
+       POLICE_PERSON.NAMENP,          
+       POLICE_PERSON.FATHER_NAME,          
+       POLICE_PERSON.GRAND_FATHER_NAME,          
+       POLICE_PERSON.ADDRESS,          
+       POLICE_PERSON.ACCOUNTNO,          
+       POLICE_PERSON.MOBILENO,          
+       POLICE_PERSON.EMAIL,          
+       POLICE_PERSON.MOJ,          
+       POLICE_PERSON.MOR,          
+       POLICE_PERSON.CODE,          
+       POLICE_PERSON.POSITION,          
+       POLICE_PERSON.CURRENT_UNIT,          
+       LoanRequestEO.NP_DATE,          
+       LoanRequestEO.EN_DATE,          
+       LoanRequestEO.PRINCIPAL,          
+       LoanRequestEO.RATE,          
+       LoanRequestEO.STATUS,          
+       LoanRequestEO.REMARKS,          
+       LoanRequestEO.APROVEDBY,          
+       POLICE_PERSON1.NAMENP AS NAMENP1,          
+       POLICE_PERSON1.CODE AS CODE1,          
+       POLICE_PERSON1.POSITION AS POSITION1,          
+       POLICE_PERSON1.CURRENT_UNIT AS CURRENT_UNIT1,          
+       LoanRequestEO.RELATION,          
+       LoanRequestEO.LANDOWNER_NAME,          
+       LoanRequestEO.ADDRESS_OF_LAND,          
+       LoanRequestEO.LOCALBODY,          
+     LoanRequestEO.CREATEDBY,                          
+       LoanRequestEO.CREATEDON                         
+FROM  LOANREQUEST LoanRequestEO, POLICE_PERSON POLICE_PERSON, POLICE_PERSON POLICE_PERSON1                         
+WHERE (LoanRequestEO.LOANER = POLICE_PERSON.CODE(+)) AND (LoanRequestEO.LOANER = POLICE_PERSON1.CODE(+))                        
+and  LoanRequestEO.CREATEDBY=:loginuser]]></SQLQuery>
+  <EntityUsage
+    Name="LoanRequestEO"
+    Entity="Loan.Loanmodel.eo.LoanRequestEO"/>
+  <EntityUsage
+    Name="POLICE_PERSON"
+    Entity="Loan.Loanmodel.eo.POLICE_PERSON"
+    Association="Loan.Loanmodel.ao.POLICE_PERSONLOANAO"
+    AssociationEnd="Loan.Loanmodel.ao.POLICE_PERSONLOANAO.POLICE_PERSON"
+    SourceUsage="Loan.Loanmodel.vo.LoanRequestVO.LoanRequestEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Loan.Loanmodel.eo.POLICE_PERSON.Code"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Loan.Loanmodel.eo.LoanRequestEO.Loaner"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="POLICE_PERSON1"
+    Entity="Loan.Loanmodel.eo.POLICE_PERSON"
+    Association="Loan.Loanmodel.ao.POLICE_PERSONLOANAPPROVEDBYAO"
+    AssociationEnd="Loan.Loanmodel.ao.POLICE_PERSONLOANAPPROVEDBYAO.POLICE_PERSON1"
+    SourceUsage="Loan.Loanmodel.vo.LoanRequestVO.LoanRequestEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Loan.Loanmodel.eo.POLICE_PERSON.Code"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Loan.Loanmodel.eo.LoanRequestEO.Aprovedby"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="LoanRequestEO"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="Loaner"
+    PrecisionRule="true"
+    EntityAttrName="Loaner"
+    EntityUsage="LoanRequestEO"
+    AliasName="LOANER"
+    LOVName="LOV_Loaner">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Loaner_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Namenp"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Namenp"
+    EntityUsage="POLICE_PERSON"
+    AliasName="NAMENP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Namenp_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FatherName"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="FATHER_NAME"
+    EntityAttrName="FatherName"
+    EntityUsage="POLICE_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.FatherName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GrandFatherName"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="GRAND_FATHER_NAME"
+    EntityAttrName="GrandFatherName"
+    EntityUsage="POLICE_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.GrandFatherName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Address"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="ADDRESS"
+    EntityAttrName="Address"
+    EntityUsage="POLICE_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Address_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Accountno"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="ACCOUNTNO"
+    EntityAttrName="Accountno"
+    EntityUsage="POLICE_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Accountno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Mobileno"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Mobileno"
+    EntityUsage="POLICE_PERSON"
+    AliasName="MOBILENO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Mobileno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Email"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="POLICE_PERSON"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="Moj"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="MOJ"
+    EntityAttrName="Moj"
+    EntityUsage="POLICE_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Moj_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Mor"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="MOR"
+    EntityAttrName="Mor"
+    EntityUsage="POLICE_PERSON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Mor_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Code"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Code"
+    EntityUsage="POLICE_PERSON"
+    AliasName="CODE"/>
+  <ViewAttribute
+    Name="Position"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Position"
+    EntityUsage="POLICE_PERSON"
+    AliasName="POSITION"
+    LOVName="LOV_Position">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Position_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentUnit"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CurrentUnit"
+    EntityUsage="POLICE_PERSON"
+    AliasName="CURRENT_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.CurrentUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NpDate"
+    PrecisionRule="true"
+    EntityAttrName="NpDate"
+    EntityUsage="LoanRequestEO"
+    AliasName="NP_DATE"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.NpDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EnDate"
+    PrecisionRule="true"
+    EntityAttrName="EnDate"
+    EntityUsage="LoanRequestEO"
+    AliasName="EN_DATE"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.EnDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Principal"
+    PrecisionRule="true"
+    EntityAttrName="Principal"
+    EntityUsage="LoanRequestEO"
+    AliasName="PRINCIPAL"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Principal_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rate"
+    PrecisionRule="true"
+    EntityAttrName="Rate"
+    EntityUsage="LoanRequestEO"
+    AliasName="RATE"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Rate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="LoanRequestEO"
+    AliasName="STATUS"
+    LOVName="LOV_Status">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Status_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="LoanRequestEO"
+    AliasName="REMARKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Remarks_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Aprovedby"
+    PrecisionRule="true"
+    EntityAttrName="Aprovedby"
+    EntityUsage="LoanRequestEO"
+    AliasName="APROVEDBY"
+    LOVName="LOV_Aprovedby">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Aprovedby_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Namenp1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Namenp"
+    EntityUsage="POLICE_PERSON1"
+    AliasName="NAMENP1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Namenp1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Code1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Code"
+    EntityUsage="POLICE_PERSON1"
+    AliasName="CODE1"/>
+  <ViewAttribute
+    Name="Position1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Position"
+    EntityUsage="POLICE_PERSON1"
+    AliasName="POSITION1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Position1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentUnit1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CurrentUnit"
+    EntityUsage="POLICE_PERSON1"
+    AliasName="CURRENT_UNIT1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.CurrentUnit1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Relation"
+    PrecisionRule="true"
+    AliasName="RELATION"
+    EntityAttrName="Relation"
+    EntityUsage="LoanRequestEO"
+    LOVName="LOV_Relation">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LandownerName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LandownerName"
+    EntityUsage="LoanRequestEO"
+    AliasName="LANDOWNER_NAME"/>
+  <ViewAttribute
+    Name="AddressOfLand"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AddressOfLand"
+    EntityUsage="LoanRequestEO"
+    AliasName="ADDRESS_OF_LAND"/>
+  <ViewAttribute
+    Name="Localbody"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Localbody"
+    EntityUsage="LoanRequestEO"
+    AliasName="LOCALBODY"/>
+  
+  <ViewAttribute
+    Name="Createdby"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="CREATEDBY"
+    ColumnType="$none$"
+    SQLType="$none$">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Createdby_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Createdon"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    AliasName="CREATEDON"
+    Type="java.sql.Timestamp"
+    ColumnType="$none$"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Createdon_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="Status2"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="LoanRequestVORow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Loan.Loanmodel.vo.LoanRequestVO.Status2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="LoanRequestVOCriteria"
+    ViewObjectName="Loan.Loanmodel.vo.LoanRequestVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="LoanRequestVOCriteria_row_0"
+      UpperColumns="1"/>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Loan.Loanmodel.LoanModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
