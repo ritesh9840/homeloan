@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.3" id="loantemplatePageDef"
+                Package="Loan.Loanview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="getNameOfCode" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getNameOfCode"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getNameOfCode.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getNameOfCode_getNameOfCode_dataControl_dataProvider_getNameOfCode_result">
+      <NamedData NDName="TableName" NDType="java.lang.String"/>
+      <NamedData NDName="CompareFieldName" NDType="java.lang.String"/>
+      <NamedData NDName="ReturnFieldName" NDType="java.lang.String"/>
+      <NamedData NDName="CompareValue" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

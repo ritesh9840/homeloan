@@ -10,7 +10,7 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t2">
-                                <af:button text="Approved" id="b1">
+                                <af:button text="Approve" id="b1">
                                     <af:showPopupBehavior popupId="papproved"/>
                                 </af:button>
                                 <af:button text="Delete" id="b2">

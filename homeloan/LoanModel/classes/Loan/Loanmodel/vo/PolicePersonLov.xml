@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PolicePersonLov"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="Loan.Loanmodel.vo.PolicePersonLovRowImpl"
+  ComponentClass="Loan.Loanmodel.vo.PolicePersonLovImpl"
+  PageIterMode="Full"
+  FetchMode="FETCH_AS_NEEDED"
+  MaxFetchSize="1000"
+  FetchSize="40">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Loan.Loanmodel.vo.PolicePersonLov_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="AppModule_RankLov1_1"
+    ViewObjectName="Loan.Loanmodel.vo.RankLov"
+    AMUsageName="AppModule"
+    ViewInstanceName="RankLov1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RankLov1"
+    ViewObjectName="Loan.Loanmodel.vo.RankLov"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Position"
+    ListVOName="RankLov1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Position"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Rnk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Rnk"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT      
+    POLICE_PERSON.CODE CODE,      
+    POLICE_PERSON.NAME NAME,      
+    POLICE_PERSON.NAMENP NAMENP,      
+    POLICE_PERSON.POSITION POSITION,      
+    POLICE_PERSON.CURRENT_UNIT CURRENT_UNIT      
+FROM      
+    POLICE_PERSON    
+    where CURRENT_UNIT!='Retired']]></SQLQuery>
+  <ViewAttribute
+    Name="Code"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CODE"
+    Expression="CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="302"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Namenp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="NAMENP"
+    Expression="NAMENP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="302"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Position"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="POSITION"
+    Expression="POSITION"
+    SQLType="VARCHAR"
+    IsUpdateable="false"
+    LOVName="LOV_Position">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentUnit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="CURRENT_UNIT"
+    Expression="CURRENT_UNIT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Code"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Loan.Loanmodel.LoanModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -412,12 +412,12 @@ public class LoanValidator {
         }
 
 
-        else if (!(serviceperiod >= 7 && serviceperiod < 28))
+        else if (!(serviceperiod >=10 && serviceperiod < 25))
 
         {
             fm =
                 new FacesMessage("You are ineligible to take loan! your service period is  " + serviceperiod +
-                                 " years Your service period shuld be >7 and <28 years");
+                                 " years Your service period shuld be >10 and <25 years");
             //  throw new ValidatorException(fm);
             fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 
