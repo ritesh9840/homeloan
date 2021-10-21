@@ -53,15 +53,15 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT      
-    POLICE_PERSON.CODE CODE,      
-    POLICE_PERSON.NAME NAME,      
-    POLICE_PERSON.NAMENP NAMENP,      
-    POLICE_PERSON.POSITION POSITION,      
-    POLICE_PERSON.CURRENT_UNIT CURRENT_UNIT      
-FROM      
-    POLICE_PERSON    
-    where CURRENT_UNIT!='Retired']]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT         
+    POLICE_PERSON.CODE CODE,         
+    POLICE_PERSON.NAME NAME,         
+    POLICE_PERSON.NAMENP NAMENP,         
+    POLICE_PERSON.POSITION POSITION,         
+    POLICE_PERSON.CURRENT_UNIT CURRENT_UNIT         
+FROM         
+    POLICE_PERSON       
+    where job_status='Permanent']]></SQLQuery>
   <ViewAttribute
     Name="Code"
     IsUpdateable="false"
