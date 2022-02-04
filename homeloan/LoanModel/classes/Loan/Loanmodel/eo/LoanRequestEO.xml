@@ -89,7 +89,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="LOANREQUEST"
-    DefaultValue="26874">
+    DefaultValue="25334">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
